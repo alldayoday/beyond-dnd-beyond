@@ -1,5 +1,4 @@
 import { Character } from '../models/character.js'
-import { isLoggedIn } from '../middleware/middleware.js'
 
 function index(req, res) {
   Character.find({})
@@ -11,7 +10,7 @@ function index(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect("/tacos")
+    res.redirect("/characters")
   })
 }
 
@@ -25,6 +24,7 @@ function newCharacter(req,res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile._id
   Character.create(req.body)
   .then(Character => {
     res.redirect('/characters')
@@ -37,7 +37,7 @@ function create(req, res) {
 
 function show(req, res) {
   Character.findById(req.params.id)
-  .populate("admin")
+  .populate("owner")
   .then(character => {
     res.render('characters/show', {
       character,
@@ -46,7 +46,7 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/characters')
+    res.redirect('/tacos')
   })
 }
 
@@ -62,17 +62,39 @@ function edit(req, res) {
 }
 
 function update(req, res) {
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
-  Character.findByIdAndUpdate(req.params.id, req.body, function(err, character) {
-    res.redirect(`/characters/${character._id}`)
+  Character.findById(req.params.id)
+  .then(character => {
+    if (character.owner.equals(req.user.profile._id)) {
+      character.updateOne(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/characters/${character._id}`)
+      })
+    } else {
+      console.log(character.owner)
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/characters`)
   })
 }
 
 function deleteCharacter(req, res) {
-  Character.findByIdAndDelete(req.params.id, function(err, character) {
-    res.redirect("/characters")
+  Character.findById(req.params.id)
+  .then(character => {
+    if (character.owner.equals(req.user.profile._id)) {
+      character.delete()
+      .then(() => {
+        res.redirect('/characters')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/characters')
   })
 }
 

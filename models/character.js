@@ -24,7 +24,7 @@ const characterSchema = new Schema({
   // intiativeBonus: Number,
   spells: [spellSchema],
   // weapons: String,
-  admin: {type: Schema.Types.ObjectId, ref: "Profile"},
+  owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
 
 const Character = mongoose.model("Character", characterSchema)

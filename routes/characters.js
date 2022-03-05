@@ -7,12 +7,19 @@ import * as charactersCtrl from '../controllers/characters.js'
 const router = Router()
 
 router.get('/', charactersCtrl.index)
+
 router.get('/new', isLoggedIn, charactersCtrl.new)
+
 router.post('/', isLoggedIn, charactersCtrl.create)
-router.get("/:id", isLoggedIn, charactersCtrl.show)
+
+router.get("/:id", isLoggedIn, passUserToView, charactersCtrl.show)
+
 router.get("/:id/edit", isLoggedIn, passUserToView, charactersCtrl.edit)
+
 router.put("/:id", isLoggedIn, passUserToView, charactersCtrl.update)
+
 router.delete("/:id", isLoggedIn, passUserToView, charactersCtrl.delete)
+
 router.post('/:id/spells', isLoggedIn, passUserToView,charactersCtrl.createSpell)
 
 export {

@@ -62,11 +62,13 @@
       <% } else { %>
         <h3>This character has no spells</h3>
       <% } %>
+      <% if (character.owner.equals(user?.profile._id)) { %>
       <a href="/characters/<%= character._id %>/edit">
         <button class="btn" type="submit">Edit Character</button>
       </a>
       <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
         <button class="btn" type="submit">Delete Character</button>
         </form>
+        <% } %>
 </main>
 <%- include('../partials/footer') %>
