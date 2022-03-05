@@ -16,13 +16,15 @@ function index(req, res) {
 }
 
 function newCharacter(req,res) {
+  Character.find({}, function(err, characters) {
   res.render('characters/new', {
-  title: 'Add Character'
+  title: 'Add Character',
+  characters: characters
+    })
   })
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile._id
   Character.create(req.body)
   .then(Character => {
     res.redirect('/characters')

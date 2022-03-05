@@ -8,7 +8,7 @@ const characterSchema = new Schema({
   intiativeBonus: Number,
   spells: String,
   weapons: String,
-  owner: {type: Schema.Types.ObjectId, ref: "Profile"}
+  // owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
 
 const Character = mongoose.model("Character", characterSchema)

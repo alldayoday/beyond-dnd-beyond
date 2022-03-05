@@ -2,7 +2,14 @@
 <%- include('../partials/nav') %>
 
 <body>
-  <h1>Book a New Flight</h1>
+  <h1>Make a New Character</h1>
+  <p>Please first ensure that the Character is not in the dropdown
+    <select>
+      <% characters.forEach(function(character) { %>
+        <option><%= character.name %></option>
+      <% }) %>
+    </select>
+  </p>
   <form action="/characters" method="POST">
     <label>Name:
       <input type="text" name="name">
