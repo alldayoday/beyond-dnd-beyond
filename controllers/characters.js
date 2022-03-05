@@ -19,7 +19,8 @@ function newCharacter(req,res) {
   Character.find({}, function(err, characters) {
   res.render('characters/new', {
   title: 'Add Character',
-  characters: characters
+  characters: characters,
+  err,
     })
   })
 }

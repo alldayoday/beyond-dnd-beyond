@@ -102,6 +102,8 @@ nav > a {
 table {
   font-size: 2rem;
   width: 80%;
+  border: 2px solid black;
+  width: 70%;
 }
 
 table thead th {
@@ -173,6 +175,18 @@ table td {
   background-color: rgb(218, 187, 248);
 }
 
-#weaponName {
-  margin-top: 30px;
+
+#add-spell-form{
+  text-align: right;
+}
+
+#weaponName{
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+#weaponBtn{
+  margin-right: 10px;
 }

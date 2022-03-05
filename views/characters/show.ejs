@@ -28,20 +28,6 @@
     <td><%= character.cha %></td>
     </tbody>
 </table>
-      <h2>Spells</h2>
-      <form 
-        id="add-spell-form"
-        action="/characters/<%= character._id %>/spells"
-        method="POST"
-      >
-      <label>Spell Name:
-        <input type="text" name="name">
-      </label><br>
-      <label>Spell Effect:
-        <input type="text" name="effect">
-      </label><br>
-        <button type="submit">Add Spell</button>
-      </form>
       <% if (character.spells.length) { %>
         <table id="spellDetails">
           <thead>
@@ -62,19 +48,6 @@
       <% } else { %>
         <h3>This character has no spells</h3>
       <% } %>
-      <form 
-      id="weaponName"
-      action="/characters/<%= character._id %>/weapons"
-      method="POST"
-    >
-      <label id="weaponName">Weapon Name:
-        <input type="text" name="weapon">
-      </label><br>
-      <label>Damage:
-        <input type="text" name="damage">
-      </label><br>
-        <button type="submit">Equip Weapon</button>
-      </form>
       <% if (character.weapons.length) { %>
         <table id="weaponDetails">
           <thead>
@@ -95,6 +68,31 @@
       <% } else { %>
         <h3>This character has no weapons</h3>
       <% } %>
+      <h3>Add Spells and Weapons</h3>
+      <form 
+        id="add-spell-form"
+        action="/characters/<%= character._id %>/spells"
+        method="POST">
+      <label>Spell Name:
+        <input type="text" name="name">
+      </label><br>
+      <label>Spell Effect:
+        <input type="text" name="effect">
+      </label><br>
+        <button type="submit">Add Spell</button>
+      </form>
+      <form 
+      id="weaponName"
+      action="/characters/<%= character._id %>/weapons"
+      method="POST">
+      <label id="weaponName">Weapon Name:
+        <input type="text" name="weapon">
+      </label><br>
+      <label id="weaponName">Damage:
+        <input type="text" name="damage">
+      </label><br>
+        <button id="weaponBtn" type="submit">Equip Weapon</button>
+      </form>
       <% if (character.owner.equals(user?.profile._id)) { %>
       <a href="/characters/<%= character._id %>/edit">
         <button class="btn" type="submit">Edit Character</button>

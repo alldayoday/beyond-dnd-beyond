@@ -3,6 +3,7 @@
 
 <main>
   <h1>Hello, <%= user ? user.profile.name : "Friend!" %></h1>
+  <h2><%= user ? "Ready to Roll?" : " " %></h2>
 </main>
 
 <%- include('./partials/footer') %>
