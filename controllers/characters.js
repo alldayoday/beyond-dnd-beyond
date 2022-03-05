@@ -35,8 +35,20 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Character.findById(req.params.id, function (err, character) {
+    res.render('characters/show', { 
+      title: 'Character Stats', 
+      character: character,
+    })
+  })
+}
+
+
+
 export {
   index,
   create,
-  newCharacter as new
+  newCharacter as new,
+  show
 }

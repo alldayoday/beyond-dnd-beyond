@@ -4,10 +4,17 @@ const Schema = mongoose.Schema
 
 const characterSchema = new Schema({
   name: {type: String, required: true, unique: true},
-  armorClass: Number,
-  intiativeBonus: Number,
-  spells: String,
-  weapons: String,
+  class: {type: String},
+  armorClass: {type: Number},
+  str: {type: Number},
+  dex: {type: Number},
+  con: {type: Number},
+  int: {type: Number},
+  wis: {type: Number},
+  cha: {type: Number},
+  // intiativeBonus: Number,
+  // spells: String,
+  // weapons: String,
   // owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
 
@@ -16,3 +23,5 @@ const Character = mongoose.model("Character", characterSchema)
 export {
   Character
 }
+
+//comment out for combat details
