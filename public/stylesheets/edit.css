@@ -1,0 +1,23 @@
+form {
+  text-align: right;
+  margin-right: 40%;
+}
+
+#classVal {
+  width: 195px;
+  font-size: 15px;
+  padding: 3px;
+}
+
+input {
+  margin: 5px;
+}
+
+select {
+  margin: 5px;
+}
+
+button {
+  margin-top: 5px;
+  margin-right: 25px;
+}

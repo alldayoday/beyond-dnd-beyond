@@ -18,7 +18,7 @@
         <% characters.forEach(character => { %>
           <div class="col">
             <a class="text-decoration-none" href="/characters/<%= character._id %>">
-              <div class="card mb-4 shadow-sm">
+              <div class="card mb-4 shadow-sm" id="cardview">
                 <div class="card-body">
                   <p class="card-title fs-3 text-dark">
                     <%= character.name %></p>
