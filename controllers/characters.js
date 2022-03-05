@@ -2,6 +2,7 @@ import { Character } from '../models/character.js'
 
 function index(req, res) {
   Character.find({})
+  .populate("owner")
   .then(characters => {
     res.render('characters/index', {
       characters,

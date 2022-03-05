@@ -129,3 +129,40 @@ table td {
 #list a:hover {
   background-color: white;
 }
+
+#newChar {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: right;
+  margin-left: 10%;
+}
+
+#submitChar {
+  width: fit-content;
+  margin-left: 60%;
+}
+
+#classChar {
+  font-size: 18px;
+  width: 195px;
+}
+
+#charh1{
+  margin-left: 20%;
+}
+
+#charp{
+  margin-left: 20%;
+}
+
+#charStat{
+  width: fit-content;
+  border: 5px solid black;
+}
+
+#spellDetails{
+  width: 70%;
+  border: 2px solid black;
+  margin-top: 20px;
+}

@@ -21,6 +21,7 @@ const characterSchema = new Schema({
   int: {type: Number},
   wis: {type: Number},
   cha: {type: Number},
+  avatar: {type: String},
   // intiativeBonus: Number,
   spells: [spellSchema],
   // weapons: String,

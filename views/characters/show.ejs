@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 <main>
   <h1><%= title %></h1>
-  <table>
+  <table id="charStat">
   <thead>
     <tr>
       <th>Name</th>
@@ -43,7 +43,7 @@
         <button type="submit">Add Spell</button>
       </form>
       <% if (character.spells.length) { %>
-        <table>
+        <table id="spellDetails">
           <thead>
             <tr>
               <th>Spell Name</th>

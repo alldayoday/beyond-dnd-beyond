@@ -10,7 +10,7 @@
 
 <section>
   <h1>Choose Your Character</h1>
-  <main class="bg-light">
+  <main class="bg-dark">
     <div class="container py-5 px-3">
       <div 
         class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g1 px-4"
@@ -20,14 +20,26 @@
             <a class="text-decoration-none" href="/characters/<%= character._id %>">
               <div class="card mb-4 shadow-sm">
                 <div class="card-body">
-                  <p class="card-title fs-3 text-dark"><%= character.name %></p>
-                  <img
-                  class="card-img-top"
-                  src="https://picsum.photos/200"
-                  alt="A placeholder avatar"
-                  width="100%"
-                />
-                </div>
+                  <p class="card-title fs-3 text-dark">
+                    <%= character.name %></p>
+                  <% if (character.avatar) { %>
+                    <img
+                      class="card-img-top"
+                      src="<%= character.avatar %>"
+                      alt="<%= character.name %>'s avatar"
+                      width="100%"
+                    />
+                  <% } else {%>
+                    <img
+                      class="card-img-top"
+                      src="https://picsum.photos/200"
+                      alt="A placeholder avatar"
+                      width="100%"
+                    />
+                  <% } %>
+              </div>
+                <footer class="blockquote-footer">Created by <cite> <%= character.owner.name %></cite> </cite></footer>
+
               </div>
             </a>
           </div>

@@ -2,21 +2,20 @@
 <%- include('../partials/nav') %>
 
 <body>
-  <h1>Make a New Character</h1>
-  <p>Please first ensure that the Character is not in the dropdown
+  <h1 id="charh1">Make a New Character</h1>
+  <p id="charp">Please first ensure that the Character is not in the dropdown
     <select>
       <% characters.forEach(function(character) { %>
         <option><%= character.name %></option>
       <% }) %>
     </select>
   </p>
-  <form action="/characters" method="POST">
+  <form id="newChar" action="/characters" method="POST">
     <label>Name:
-      <input type="text" name="name">
-    </label><br>
+      <input id="nameChar" type="text" name="name">
     </label><br>
     <label>Class:
-      <select name="class">
+      <select id="classChar" name="class">
         <option value="Artificer">Artificer</option>
         <option value="Barbarian">Barbarian</option>
         <option value="Bard">Bard</option>
@@ -54,7 +53,10 @@
     <label>CHA:
       <input type="number" name="cha">
     </label><br>
-    <button type="submit">Add Character</button>
+    <label>Picture:
+      <input type="text" name="avatar" placeholder="link direct image addres">
+    </label><br>
+    <button id="submitChar" type="submit">Add Character</button>
   </form>
 </body>
 
