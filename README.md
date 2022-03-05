@@ -15,8 +15,8 @@ Mongoose
 Express
 
 ## Future Enhancements 
-*Add a combat feature that will track whose turn it is in initiative
-*Allow players to upload photos and automatically host those before sending link to database
+* Add a combat feature that will track whose turn it is in initiative
+* Allow players to upload photos and automatically host those before sending link to database
 
 ## Game Images
 insert final images
