@@ -36,11 +36,17 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Character.findById(req.params.id, function (err, character) {
-    res.render('characters/show', { 
-      title: 'Character Stats', 
-      character: character,
+  Character.findById(req.params.id)
+  .populate("admin")
+  .then(character => {
+    res.render('characters/show', {
+      character,
+      title: "Character Stats"
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/characters')
   })
 }
 
@@ -70,6 +76,15 @@ function deleteCharacter(req, res) {
   })
 }
 
+function createSpell(req,res) {
+  Character.findById(req.params.id, function(err, character) {
+    character.spells.push(req.body)
+    character.save(function(err) {
+      res.redirect(`/characters/${character._id}`)
+    })
+  })
+}
+
 
 export {
   index,
@@ -79,5 +94,5 @@ export {
   edit,
   update,
   deleteCharacter as delete,
-  
+  createSpell,
 }

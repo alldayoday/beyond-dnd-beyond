@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { isLoggedIn } from '../middleware/middleware.js'
+import { passUserToView } from '../middleware/middleware.js'
 
 import * as charactersCtrl from '../controllers/characters.js'
 
@@ -9,9 +10,10 @@ router.get('/', charactersCtrl.index)
 router.get('/new', isLoggedIn, charactersCtrl.new)
 router.post('/', isLoggedIn, charactersCtrl.create)
 router.get("/:id", isLoggedIn, charactersCtrl.show)
-router.get("/:id/edit", charactersCtrl.edit)
-router.put("/:id", charactersCtrl.update)
-router.delete("/:id", charactersCtrl.delete)
+router.get("/:id/edit", isLoggedIn, passUserToView, charactersCtrl.edit)
+router.put("/:id", isLoggedIn, passUserToView, charactersCtrl.update)
+router.delete("/:id", isLoggedIn, passUserToView, charactersCtrl.delete)
+router.post('/:id/spells', isLoggedIn, passUserToView,charactersCtrl.createSpell)
 
 export {
   router

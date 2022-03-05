@@ -27,12 +27,46 @@
     <td><%= character.wis %></td>
     <td><%= character.cha %></td>
     </tbody>
-  </table>
-  <a href="/characters/<%= character._id %>/edit">
-    <button>Edit Character</button>
-  </a>
-  <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-    <button>Delete Character</button>
-  </form>
+</table>
+      <h2>Spells</h2>
+      <form 
+        id="add-spell-form"
+        action="/characters/<%= character._id %>/spells"
+        method="POST"
+      >
+      <label>Spell Name:
+        <input type="text" name="name">
+      </label><br>
+      <label>Spell Effect:
+        <input type="text" name="effect">
+      </label><br>
+        <button type="submit">Add Spell</button>
+      </form>
+      <% if (character.spells.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Spell Name</th>
+              <th>Spell Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% character.spells.forEach(function(spell) { %>
+              <tr>
+                <td><%= spell.name %></td>
+                <td><%= spell.effect %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h3>This character has no spells</h3>
+      <% } %>
+      <a href="/characters/<%= character._id %>/edit">
+        <button class="btn" type="submit">Edit Character</button>
+      </a>
+      <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+        <button class="btn" type="submit">Delete Character</button>
+        </form>
 </main>
 <%- include('../partials/footer') %>
