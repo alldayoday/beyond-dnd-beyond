@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: rgb(227, 214, 240);
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -101,6 +101,7 @@ nav > a {
 
 table {
   font-size: 2rem;
+  width: 80%;
 }
 
 table thead th {
@@ -158,7 +159,7 @@ table td {
 }
 
 #charStat{
-  width: fit-content;
+  width: 80%;
   border: 5px solid black;
 }
 
@@ -170,4 +171,8 @@ table td {
 
 #cardview {
   background-color: rgb(218, 187, 248);
+}
+
+#weaponName {
+  margin-top: 30px;
 }

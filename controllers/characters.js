@@ -108,6 +108,15 @@ function createSpell(req,res) {
   })
 }
 
+function equipWeapon(req,res){
+  Character.findById(req.params.id, function(err, character) {
+    character.weapons.push(req.body)
+    character.save(function(err) {
+      res.redirect(`/characters/${character._id}`)
+    })
+  })
+}
+
 
 export {
   index,
@@ -118,4 +127,5 @@ export {
   update,
   deleteCharacter as delete,
   createSpell,
+  equipWeapon
 }

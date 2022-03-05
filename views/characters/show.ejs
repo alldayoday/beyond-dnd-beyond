@@ -7,7 +7,7 @@
     <tr>
       <th>Name</th>
       <th>Class</th>
-      <th>Armor Class</th>
+      <th>AC</th>
       <th>Strength</th>
       <th>Dexterity</th>
       <th>Constitution</th>
@@ -61,6 +61,39 @@
         </table>
       <% } else { %>
         <h3>This character has no spells</h3>
+      <% } %>
+      <form 
+      id="weaponName"
+      action="/characters/<%= character._id %>/weapons"
+      method="POST"
+    >
+      <label id="weaponName">Weapon Name:
+        <input type="text" name="weapon">
+      </label><br>
+      <label>Damage:
+        <input type="text" name="damage">
+      </label><br>
+        <button type="submit">Equip Weapon</button>
+      </form>
+      <% if (character.weapons.length) { %>
+        <table id="weaponDetails">
+          <thead>
+            <tr>
+              <th>Weapon</th>
+              <th>Damage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% character.weapons.forEach(function(weapon) { %>
+              <tr>
+                <td><%= weapon.weapon %></td>
+                <td><%= weapon.damage %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h3>This character has no weapons</h3>
       <% } %>
       <% if (character.owner.equals(user?.profile._id)) { %>
       <a href="/characters/<%= character._id %>/edit">

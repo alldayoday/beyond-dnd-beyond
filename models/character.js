@@ -11,6 +11,15 @@ const spellSchema = new Schema({
   },
 })
 
+const weaponSchema = new Schema({
+  weapon: {
+    type: String,
+  },
+  damage: {
+    type: String, 
+  },
+})
+
 const characterSchema = new Schema({
   name: {type: String, required: true, unique: true},
   class: {type: String},
@@ -24,7 +33,7 @@ const characterSchema = new Schema({
   avatar: {type: String},
   // intiativeBonus: Number,
   spells: [spellSchema],
-  // weapons: String,
+  weapons: [weaponSchema],
   owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
 
