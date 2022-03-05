@@ -112,10 +112,6 @@ table td {
   text-align: center;
 }
 
-#list td:nth-child(2),
-#list td:nth-child(3) {
-  min-width: 100px;
-}
 
 #list a {
   border-radius: 4px;

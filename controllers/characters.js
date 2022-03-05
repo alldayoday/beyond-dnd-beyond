@@ -44,11 +44,40 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  Character.findById(req.params.id, function (err, character) {
+    console.log(character)
+    res.render("characters/edit", {
+      character, 
+      err,
+      title: "Edit Character"
+    })
+  })
+}
+
+function update(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Character.findByIdAndUpdate(req.params.id, req.body, function(err, character) {
+    res.redirect(`/characters/${character._id}`)
+  })
+}
+
+function deleteCharacter(req, res) {
+  Character.findByIdAndDelete(req.params.id, function(err, character) {
+    res.redirect("/characters")
+  })
+}
 
 
 export {
   index,
   create,
   newCharacter as new,
-  show
+  show,
+  edit,
+  update,
+  deleteCharacter as delete,
+  
 }

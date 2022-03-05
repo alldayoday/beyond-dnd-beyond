@@ -28,5 +28,11 @@
     <td><%= character.cha %></td>
     </tbody>
   </table>
+  <a href="/characters/<%= character._id %>/edit">
+    <button>Edit Character</button>
+  </a>
+  <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+    <button>Delete Character</button>
+  </form>
 </main>
 <%- include('../partials/footer') %>
