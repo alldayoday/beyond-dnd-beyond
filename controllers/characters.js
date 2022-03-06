@@ -43,7 +43,7 @@ function show(req, res) {
   .then(character => {
     res.render('characters/show', {
       character,
-      title: "Character Stats"
+      title: `${character.name}'s Stats`
     })
   })
   .catch(err => {

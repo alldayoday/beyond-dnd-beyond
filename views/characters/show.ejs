@@ -5,7 +5,6 @@
   <table id="charStat">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Class</th>
       <th>AC</th>
       <th>Strength</th>
@@ -17,7 +16,6 @@
     </tr>
   </thead>
   <tbody>
-    <td><%= character.name %></td>
     <td><%= character.class %></td>
     <td><%= character.armorClass %></td>
     <td><%= character.str %></td>
@@ -28,11 +26,31 @@
     <td><%= character.cha %></td>
     </tbody>
 </table>
+<% if (character.weapons.length) { %>
+  <table id="weaponDetails">
+    <thead>
+      <tr>
+        <th>Weapons</th>
+        <th>Damage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% character.weapons.forEach(function(weapon) { %>
+        <tr>
+          <td><%= weapon.weapon %></td>
+          <td><%= weapon.damage %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h3>This character has no weapons</h3>
+<% } %>
       <% if (character.spells.length) { %>
         <table id="spellDetails">
           <thead>
             <tr>
-              <th>Spell Name</th>
+              <th>Spells</th>
               <th>Spell Effect</th>
             </tr>
           </thead>
@@ -48,26 +66,7 @@
       <% } else { %>
         <h3>This character has no spells</h3>
       <% } %>
-      <% if (character.weapons.length) { %>
-        <table id="weaponDetails">
-          <thead>
-            <tr>
-              <th>Weapon</th>
-              <th>Damage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% character.weapons.forEach(function(weapon) { %>
-              <tr>
-                <td><%= weapon.weapon %></td>
-                <td><%= weapon.damage %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      <% } else { %>
-        <h3>This character has no weapons</h3>
-      <% } %>
+      <% if (character.owner.equals(user?.profile._id)) { %>
       <h3>Add Spells and Weapons</h3>
       <form 
         id="add-spell-form"
@@ -88,11 +87,12 @@
       <label id="weaponName">Weapon Name:
         <input type="text" name="weapon">
       </label><br>
-      <label id="weaponName">Damage:
+      <label>Damage:
         <input type="text" name="damage">
       </label><br>
-        <button id="weaponBtn" type="submit">Equip Weapon</button>
+        <button type="submit">Equip Weapon</button>
       </form>
+      <% } %>
       <% if (character.owner.equals(user?.profile._id)) { %>
       <a href="/characters/<%= character._id %>/edit">
         <button class="btn" type="submit">Edit Character</button>

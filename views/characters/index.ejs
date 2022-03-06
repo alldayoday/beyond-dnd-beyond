@@ -10,7 +10,7 @@
 
 <section>
   <h1>Choose Your Character</h1>
-  <main class="bg-dark">
+  <main class="bg-dark" id="cardBg">
     <div class="container py-5 px-3">
       <div 
         class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g1 px-4"
@@ -38,7 +38,7 @@
                     />
                   <% } %>
               </div>
-                <footer class="blockquote-footer">Created by <cite> <%= character.owner.name %></cite> </cite></footer>
+                <footer id="foot" class="blockquote-footer">Created by <cite> <%= character.owner.name %></cite> </cite></footer>
 
               </div>
             </a>

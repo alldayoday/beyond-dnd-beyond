@@ -17,19 +17,26 @@ html {
     font-size: 62.5%
 }
 
+/* f6bd60 yellow */
+/* f5cac3 pink */
+
 body {
-  background-color: rgb(227, 214, 240);
+  background-color: #242424;
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
+  font-family: 'Noto Serif', serif;
+  color: #f5cac3;
 }
 
 nav {
-  background-color: rgb(56, 7, 88);
+  background-color: rgba(29, 28, 28, 0.699);
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
+  height: 80px;
+  border-bottom: 2px solid #ffddd25b;
 }
 
 main {
@@ -42,6 +49,8 @@ main {
 h1 {
   font-size: 3.6rem;
   text-align: center;
+  font-family: 'Shrikhand', cursive;
+  text-shadow: 0 2px 2px black, 5px 5px #84a98c;
 }
 
 h2 {
@@ -64,12 +73,24 @@ label {
   font-weight: bold;
 }
 
+button {
+  background-color: #84a98cc4;
+  color: #f5cac3;
+  padding: 5px;
+  font-family: 'Shrikhand', cursive;
+  border: 2px solid #f5cac3;
+  border-radius: 5px;
+  text-shadow: 0 2px 2px black, 2px 2px #84a98c;
+  margin: 10px;
+}
+
 section {
   padding: 50px;
 }
 
 a {
-  color: rgb(218, 187, 248);
+  color: #84a98c;
+  font-family: 'Shrikhand', cursive;
 }
 
 pre {
@@ -83,6 +104,13 @@ nav > a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2px;
+  text-shadow: 0 2px 2px black, 2px 2px #f5cac3;
+}
+
+nav > a:hover {
+  color:#f5cac3;
+  text-shadow: 0 2px 2px black, 2px 2px #84a98c;
 }
 
 .btn {
@@ -103,17 +131,22 @@ table {
   font-size: 2rem;
   width: 80%;
   border: 2px solid black;
-  width: 70%;
+  border-radius: 5px;
 }
 
 table thead th {
   padding: 5px;
-  border-bottom: 2px solid #424748;
+  border: 2px solid black;
+  font-family: 'Shrikhand', cursive;
+  font-size: 18px;
+  text-shadow: 0 2px 2px black, 2px 2px #84a98c;
 }
 
 table td {
   padding: 10px;
   text-align: center;
+  border: 2px solid black;
+  font-size: 15px;
 }
 
 
@@ -126,13 +159,6 @@ table td {
   color: #424748;
 }
 
-#list a:visited{
-  color: #424748;
-}
-
-#list a:hover {
-  background-color: white;
-}
 
 #newChar {
   display: flex;
@@ -160,21 +186,28 @@ table td {
   margin-left: 20%;
 }
 
-#charStat{
-  width: 80%;
+table#charStat{
   border: 5px solid black;
 }
 
 #spellDetails{
   width: 70%;
-  border: 2px solid black;
+  border: 5px solid black;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #cardview {
-  background-color: rgb(218, 187, 248);
+  background-color: #f5cac37e;
+  font-family: 'Noto Serif', serif;
+  border-radius: 20px;
+  border: 2px solid #f5cac3;
+  text-align: center;
 }
 
+#cardview:hover{
+  background-color: #84a98cb0;
+}
 
 #add-spell-form{
   text-align: right;
@@ -190,3 +223,29 @@ table td {
 #weaponBtn{
   margin-right: 10px;
 }
+
+#cardBg{
+  border-radius: 50px;
+}
+#bolder{
+  font-weight: 700;
+}
+
+input {
+  padding: 5px;
+  font-family: 'Noto Serif', serif;
+}
+
+#charProf {
+  display:  inline;
+}
+
+#weaponDetails {
+  margin-top: 20px;
+  border: 5px solid black;
+}
+
+#foot {
+  color: #242424;
+}
+

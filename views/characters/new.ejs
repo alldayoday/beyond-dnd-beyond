@@ -3,7 +3,7 @@
 
 <body>
   <h1 id="charh1">Make a New Character</h1>
-  <p id="charp">Please first ensure that the Character is not in the dropdown
+  <p id="charp">Please first ensure that the character is not in the dropdown
     <select>
       <% characters.forEach(function(character) { %>
         <option><%= character.name %></option>
@@ -30,6 +30,7 @@
         <option value="Sorcerer">Sorcerer</option>
         <option value="Warlock">Warlock</option>
         <option value="Wizard">Wizard</option>
+        <option value="NPC">NPC</option>
       </select>
     </label><br>
     <label>AC:
