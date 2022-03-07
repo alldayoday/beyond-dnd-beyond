@@ -1,6 +1,39 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
+<main>
 <h1><%= title %></h1>
+<table id="combatSpecific">
+<thead>
+  <tr>
+    <th>Name</th>
+    <!-- <th>Initiative</th> -->
+    <th>AC</th>
+    <th>HP Max</th>
+    <th>HP Current</th>
+    <th>Turn</th>
+  </tr>
+</thead>
+<tbody>
+  <td><%= character.name %></td>
+  <td><%= character.armorClass %></td>
+  <td><%= character.hitPoints %></td>
+  <td><%= character.currentHP %></td>
+  <td><%= character.initiative %></td>
+  </tbody>
+</table>
 
+<form id="combatForm" action="/combats/:id" method="POST">
+  <label>Name:
+      <select id="classChar" name="class">
+      <% character.forEach(function(character) { %>
+        <option><%= character.name %></option>
+      <% }) %>
+    </select>
+  </label><br>
+  <label>Initiative:
+    <input id="initiativeRoll" type="text" name="initiativeRoll">
+  </label><br>
+  <button id="submitCombat" type="submit">Add to Combat</button>
+</form>
+</main>
 <%- include('../partials/footer') %>

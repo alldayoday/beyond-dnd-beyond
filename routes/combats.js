@@ -12,6 +12,8 @@ router.post('/', isLoggedIn, combatsCtrl.create)
 
 router.get('/:id', combatsCtrl.show)
 
+router.post('/', isLoggedIn, combatsCtrl.create)
+
 export {
   router
 }

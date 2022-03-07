@@ -8,7 +8,6 @@ function index(req, res) {
     res.render('combats/index', {
       combats,
       title: "Combat",
-      character: Character,
     })
   })
   .catch(err => {
@@ -19,17 +18,16 @@ function index(req, res) {
 
 function show(req, res) {
   Combat.findById(req.params.id)
-  .populate("owner")
-  .populate("characters")
-  .then(combat => {
-    res.render('combats/show', {
-      combat,
-      title: `${combat.name}`
+  .populate('characters')
+  .exec(function(err, combat) {
+    Character.find({_id: {$nin: combat.characters}}, 
+      function(err, character) {
+      res.render('combats/show', {
+        title: `${combat.name}`, 
+        combat,
+        character,
+      })
     })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/combats')
   })
 }
 
