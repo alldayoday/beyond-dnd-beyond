@@ -1,0 +1,39 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+<main>
+<table id="combatList">
+  <h1>Roll for Initiative</h1>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Hit Points</th>%>       
+    </tr>
+  </thead>
+  <tbody>
+    <% combats.forEach(function(combat) { %>
+      <tr>
+        <td><%= combat.name %></td>
+        <td> <a href="/combats/<%combat._id%>">
+          🎲
+        </a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+<form id="newCombat" action="/combats" method="POST">
+  <label>Name:
+    <input id="nameCombat" type="text" name="name">
+  </label><br>
+  <label>Players:
+    <select id="combatPlayer" name="character">
+      <% Character.forEach(character => { %>
+      <option value="<%character._id%>"><%character.name%></option>       
+    <% }) %>
+    </select>
+  </label><br>
+  <button id="submitCombat" type="submit">Add to Combat</button>
+</form>
+</main>
+
+<%- include('../partials/footer') %>

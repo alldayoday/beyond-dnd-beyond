@@ -1,0 +1,13 @@
+body {
+  background-image: none;
+}
+
+#charInfo{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+
+img {
+  margin: 20px;
+}

@@ -1,8 +1,10 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/show.css">
 <%- include('../partials/nav') %>
 <main>
   <h1><%= title %></h1>
   <table id="charStat">
+    <div id="charInfo">
   <thead>
     <tr>
       <th>Class</th>
@@ -25,13 +27,30 @@
     <td><%= character.wis %></td>
     <td><%= character.cha %></td>
     </tbody>
+  </div>
 </table>
+<% if (character.avatar) { %>
+  <img
+    src="<%= character.avatar %>"
+    alt="<%= character.name %>'s avatar"
+    width="20%"
+  />
+<% } else {%>
+  <img
+    src="https://picsum.photos/200"
+    alt="A placeholder avatar"
+    width="20%"
+  />
+<% } %>
 <% if (character.weapons.length) { %>
   <table id="weaponDetails">
     <thead>
       <tr>
         <th>Weapons</th>
-        <th>Damage</th>
+        <th>Damage</th>%>
+        <% if (character.owner.equals(user?.profile._id)) { %>  
+          <th>Remove</th>
+          <% } %>         
       </tr>
     </thead>
     <tbody>
@@ -39,6 +58,14 @@
         <tr>
           <td><%= weapon.weapon %></td>
           <td><%= weapon.damage %></td>
+          <% if (character.owner.equals(user?.profile._id)) { %>  
+            <td> 
+              <form action="/characters/<%=character._id%>/weapons/<%= weapon._id %>?_method=DELETE" method="POST"
+                style="display: inline-block;">
+            <button type="submit">Remove</button>
+            </form>
+          </td>
+            <% } %>        
         </tr>
       <% }) %>
     </tbody>
@@ -52,6 +79,9 @@
             <tr>
               <th>Spells</th>
               <th>Spell Effect</th>
+              <% if (character.owner.equals(user?.profile._id)) { %>  
+              <th>Remove</th>
+              <% } %>        
             </tr>
           </thead>
           <tbody>
@@ -59,6 +89,14 @@
               <tr>
                 <td><%= spell.name %></td>
                 <td><%= spell.effect %></td>
+                <% if (character.owner.equals(user?.profile._id)) { %>  
+                  <td> 
+                    <form action="/characters/<%=character._id%>/spells/<%= spell._id %>?_method=DELETE" method="POST"
+                      style="display: inline-block;">
+                  <button type="submit">Remove Spell</button>
+                  </form>
+                </td>
+                  <% } %>        
               </tr>
             <% }) %>
           </tbody>

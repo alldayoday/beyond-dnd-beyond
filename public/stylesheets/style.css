@@ -23,6 +23,10 @@ html {
 body {
   background-color: #242424;
   /* Use a system font, if none are available use an available sans-sarif font */
+  background-image: url(https://i.imgur.com/o97Snrb.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
@@ -31,7 +35,7 @@ body {
 }
 
 nav {
-  background-color: rgba(29, 28, 28, 0.699);
+  background-color: rgb(29, 28, 28);
   font-size: 1.6rem;
   display: flex;
   justify-content: center;
@@ -84,6 +88,10 @@ button {
   margin: 10px;
 }
 
+button:hover {
+  background-color: #84a98c;
+}
+
 section {
   padding: 50px;
 }
@@ -113,6 +121,10 @@ nav > a:hover {
   text-shadow: 0 2px 2px black, 2px 2px #84a98c;
 }
 
+form {
+  text-align: center;
+}
+
 .btn {
   margin: 1.6rem 0;
 }
@@ -132,11 +144,12 @@ table {
   width: 80%;
   border: 2px solid black;
   border-radius: 5px;
+  background-color:#00000059;
 }
 
 table thead th {
   padding: 5px;
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.76);
   font-family: 'Shrikhand', cursive;
   font-size: 18px;
   text-shadow: 0 2px 2px black, 2px 2px #84a98c;
@@ -178,12 +191,8 @@ table td {
   width: 195px;
 }
 
-#charh1{
-  margin-left: 20%;
-}
-
 #charp{
-  margin-left: 20%;
+  text-align: center;
 }
 
 table#charStat{
@@ -226,10 +235,9 @@ table#charStat{
 
 #cardBg{
   border-radius: 50px;
+  background-color: #424748d0;
 }
-#bolder{
-  font-weight: 700;
-}
+
 
 input {
   padding: 5px;
@@ -249,3 +257,13 @@ input {
   color: #242424;
 }
 
+#homeBtn {
+  margin-left: 0;
+}
+
+#indexLinks {
+  font-size: 30px;
+  text-decoration: none;
+  border: 2px solid #f5cac3;
+  padding: 20px;
+}

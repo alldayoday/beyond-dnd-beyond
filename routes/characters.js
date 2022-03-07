@@ -24,6 +24,10 @@ router.post('/:id/spells', isLoggedIn, passUserToView,charactersCtrl.createSpell
 
 router.post('/:id/weapons', isLoggedIn, passUserToView,charactersCtrl.equipWeapon)
 
+router.delete("/:charId/spells/:spellId", isLoggedIn, passUserToView, charactersCtrl.deleteSpell)
+
+router.delete("/:charId/weapons/:weaponId", isLoggedIn, passUserToView, charactersCtrl.deleteWeapon)
+
 export {
   router
 }

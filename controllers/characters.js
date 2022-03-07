@@ -118,6 +118,36 @@ function equipWeapon(req,res){
   })
 }
 
+function deleteSpell(req, res) {
+    Character.findById(req.params.charId)
+    .then(character => {
+      console.log("hello!")
+      character.spells.remove({_id: req.params.spellId})
+      character.save()
+      .then(()=> {
+        res.redirect(`/characters/${character._id}`)
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/characters/${req.character._id}`)
+    })
+}
+
+function deleteWeapon(req, res) {
+  Character.findById(req.params.charId)
+  .then(character => {
+    character.weapons.remove({_id: req.params.weaponId})
+    character.save()
+    .then(()=> {
+      res.redirect(`/characters/${character._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/characters/${req.character._id}`)
+  })
+}
 
 export {
   index,
@@ -128,5 +158,7 @@ export {
   update,
   deleteCharacter as delete,
   createSpell,
-  equipWeapon
+  equipWeapon,
+  deleteSpell,
+  deleteWeapon
 }
