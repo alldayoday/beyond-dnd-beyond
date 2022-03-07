@@ -6,9 +6,11 @@ import * as combatsCtrl from '../controllers/combats.js'
 
 const router = Router()
 
-router.get('/', combatsCtrl.index)
+router.get('/', isLoggedIn, combatsCtrl.index)
 
 router.post('/', isLoggedIn, combatsCtrl.create)
+
+router.get('/:id', combatsCtrl.show)
 
 export {
   router

@@ -3,18 +3,33 @@ import { Character } from '../models/character.js'
 
 function index(req, res) {
   Combat.find({})
-  .populate("owner")
-  .populate("character")
+  .populate("characters")
   .then(combats => {
     res.render('combats/index', {
       combats,
       title: "Combat",
-      Character,
+      character: Character,
     })
   })
   .catch(err => {
     console.log(err)
     res.redirect("/combats")
+  })
+}
+
+function show(req, res) {
+  Combat.findById(req.params.id)
+  .populate("owner")
+  .populate("characters")
+  .then(combat => {
+    res.render('combats/show', {
+      combat,
+      title: `${combat.name}`
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/combats')
   })
 }
 
@@ -32,5 +47,6 @@ function create(req,res){
 
 export {
   index,
-  create
+  create,
+  show,
 }

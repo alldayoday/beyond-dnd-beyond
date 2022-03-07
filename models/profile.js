@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const profileSchema = new mongoose.Schema({
   name: String,
   avatar: String,
-  players: {type: Schema.Types.ObjectId, ref: 'Characters'}
+  players: [{type: Schema.Types.ObjectId, ref: 'Characters'}],
+  combats: [{type: Schema.Types.ObjectId, ref: 'Combats'}],
 }, {
   timestamps: true
 })
