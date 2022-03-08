@@ -17,37 +17,44 @@ dTwenty.addEventListener('click', rollTwenty)
 const rollResult = document.querySelector('#rollResult')
 
 function rollFour(){
-roll = Math.floor(Math.random() * 5)
+roll = Math.floor(Math.random() * 4)
+roll = roll +=1
 rollResult.textContent = `${roll}`
 }
 
 function rollSix(){
-  roll = Math.floor(Math.random() * 7)
+  roll = Math.floor(Math.random() * 6)
+  roll = roll+=1
   rollResult.textContent = `${roll}`
   }
 
   function rollEight(){
-    roll = Math.floor(Math.random() * 9)
+    roll = Math.floor(Math.random() * 8)
+    roll = roll+=1
     rollResult.textContent = `${roll}`
     }
 
     function rollTen(){
-      roll = Math.floor(Math.random() * 11)
+      roll = Math.floor(Math.random() * 10)
+      roll = roll+=1
       rollResult.textContent = `${roll}`
       }
 
       function rollHundo(){
-        roll = Math.floor(Math.random() * 101)
+        roll = Math.floor(Math.random() * 100 )
+        roll = roll+=1
         rollResult.textContent = `${roll}`
         }
 
         function rollTwelve(){
-          roll = Math.floor(Math.random() * 13)
+          roll = Math.floor(Math.random() * 12)
+          roll = roll+=1
           rollResult.textContent = `${roll}`
           }
 
           function rollTwenty(){
-            roll = Math.floor(Math.random() * 21)
+            roll = Math.floor(Math.random() * 20)
+            roll= roll+= 1
             rollResult.textContent = `${roll}`
             }
 
