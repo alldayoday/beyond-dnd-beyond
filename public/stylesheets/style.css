@@ -287,14 +287,31 @@ input {
 #notesAll {
   color: #242424;
   font-size: 1.2rem;
-  display: inline-block;
+  display: flex;
   justify-items: center;
-  margin: 10px;
+  margin: 20px;
+  height: fit-content;
 }
 
 #notesTitle {
   margin-top: 15px;
   font-size: 1.8rem;
   color: darkred;
+  padding-bottom: 5px;
+  text-decoration: underline black;
 }
 
+#notesCard {
+  margin: 10px;
+  height: fit-content;
+  width: fit-content;
+}
+
+#newNote {
+  text-align: right;
+  margin-right: 35%;
+
+}
+
+.card-text { height: 42px; overflow-x: scroll; width: 100%; }
+.card-text p { width: 650px; word-break: break-word; }

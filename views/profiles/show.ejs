@@ -20,12 +20,12 @@
 </div> -->
 <div id="notesAll">
 <% profile.sessionNotes.forEach(sessionNote => { %>
-<div id="notesCard" class="card bg-dark" style="width: 40rem;">
+<div id="notesCard" class="card bg-dark">
   <img class="card-img" src="https://i.imgur.com/UHGIFhw.png" alt="Card image">
   <div class="card-img-overlay">
     <h3 id="notesTitle" class="card-title">Session Number: <%= sessionNote.session %></h3>
-    <h6 class="card-subtitle mb-2 text-muted"> Date: <%= sessionNote.date %></h6>
-    <p id="notes" class="card-text">Notes: <%=sessionNote.notes%>.</p>
+    <h6 class="card-subtitle mb-2 text-muted">Session Date: <%= sessionNote.date %></h6>
+    <p id="notes" class="card-text"><%=sessionNote.notes%>.</p>
     <form action="/profiles/<%= profile._id %>/sessionNotes/<%= sessionNote._id%>?_method=DELETE" method="POST">
       <button class="btn" type="submit">X</button>
       </form>
