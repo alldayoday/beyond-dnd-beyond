@@ -21,17 +21,16 @@
   <td><%= character.initiative %></td>
   </tbody>
 </table>
-
-<form id="combatForm" action="/combats/:id" method="POST">
+<form id="combatForm" action="/combats/<%= combat._id %>/characters" method="POST">
   <label>Name:
-      <select id="classChar" name="class">
+      <select id="classChar" name="characters">
       <% character.forEach(function(character) { %>
-        <option><%= character.name %></option>
+        <option value="<%character%>"><%= character.name %></option>
       <% }) %>
     </select>
   </label><br>
   <label>Initiative:
-    <input id="initiativeRoll" type="text" name="initiativeRoll">
+    <input id="initiativeRoll" type="text" name=<%character.initiative%>>
   </label><br>
   <button id="submitCombat" type="submit">Add to Combat</button>
 </form>

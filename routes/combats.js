@@ -10,9 +10,11 @@ router.get('/', isLoggedIn, combatsCtrl.index)
 
 router.post('/', isLoggedIn, combatsCtrl.create)
 
-router.get('/:id', combatsCtrl.show)
+router.get('/:id', isLoggedIn, combatsCtrl.show)
 
-router.post('/', isLoggedIn, combatsCtrl.create)
+router.post('/:id/characters', isLoggedIn, combatsCtrl.addToCombat)
+
+
 
 export {
   router

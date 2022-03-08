@@ -108,7 +108,7 @@ pre {
 nav > a {
   margin: 1rem 3rem;
   text-decoration: none;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,3 +283,18 @@ input {
   width: 70%;
   margin-bottom: 20px;
 }
+
+#notesAll {
+  color: #242424;
+  font-size: 1.2rem;
+  display: inline-block;
+  justify-items: center;
+  margin: 10px;
+}
+
+#notesTitle {
+  margin-top: 15px;
+  font-size: 1.8rem;
+  color: darkred;
+}
+

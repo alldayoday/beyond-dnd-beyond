@@ -1,4 +1,5 @@
 import { Character } from '../models/character.js'
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Character.find({})
@@ -149,6 +150,8 @@ function deleteWeapon(req, res) {
   })
 }
 
+
+
 export {
   index,
   create,
@@ -160,5 +163,5 @@ export {
   createSpell,
   equipWeapon,
   deleteSpell,
-  deleteWeapon
+  deleteWeapon,
 }

@@ -28,6 +28,7 @@ router.delete("/:charId/spells/:spellId", isLoggedIn, passUserToView, characters
 
 router.delete("/:charId/weapons/:weaponId", isLoggedIn, passUserToView, charactersCtrl.deleteWeapon)
 
+
 export {
   router
 }

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 const combatSchema = new Schema({
   name: {type: String},
+  initiative: {type: Number},
   characters: [{type: Schema.Types.ObjectId, ref: "Character"}],
   owner: {type: Schema.Types.ObjectId, ref: "Profile"}
 })
