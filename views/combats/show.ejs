@@ -23,14 +23,13 @@
   <td><%= instance.initiative %></td>
 </tr>
   <% }) %>
-
   </tbody>
 </table>
 <form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
   <label>Name:
       <select id="charName" name="name">
       <% character.forEach(function(character) { %>
-        <option value="<% character.name%>"><%= character.name %></option>
+        <option value="<%= character.name %>"><%= character.name %></option>
       <% }) %>
     </select>
   </label><br>
