@@ -300,7 +300,7 @@ input {
   font-size: 1.8rem;
   color: darkred;
   padding-bottom: 5px;
-  text-decoration: underline black;
+  border-bottom: 2px solid darkred;
 }
 
 #notesCard {
@@ -318,6 +318,7 @@ input {
 
 #notes {
   font-size: 1.2rem;
+  padding-top: 5px;
 }
 
 /* The sidebar menu */
@@ -331,6 +332,8 @@ input {
   background-color: rgb(29, 28, 28);
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
+  border-right: 2px solid #ffddd25b;
+
 }
 
 /* The navigation menu links */
@@ -363,4 +366,23 @@ input {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+#combatForm {
+  text-align: right;
+}
+
+#charName {
+  width: 231px;
+  height: 35px;
+}
+
+#indexImg {
+  width: 50%;
+  border: 5px solid #84a98c;
+  border-radius: 30px;
+}
+
+#imgLink {
+  text-align: center;
 }
