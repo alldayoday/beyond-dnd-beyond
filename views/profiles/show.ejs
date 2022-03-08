@@ -26,13 +26,16 @@
     <h3 id="notesTitle" class="card-title">SESSION NUMBER: <%= sessionNote.session %></h3>
     <h6 class="card-subtitle mb-2 text-muted">Session Date: <%= sessionNote.date %></h6>
     <p id="notes" class="card-text"><%=sessionNote.notes%>.</p>
+    <% if (isSelf) {%>
     <form action="/profiles/<%= profile._id %>/sessionNotes/<%= sessionNote._id%>?_method=DELETE" method="POST">
       <button class="btn" type="submit">X</button>
       </form>
+      <% } %>
   </div>
 </div>
 <% }) %>
 </div> 
+<% if (isSelf) {%>
 <form id="newNote" action="/profiles/<%=profile._id%>/sessionNotes" method="POST">
   <label>Session Number:
     <input id="sessionNum" type="number" name="session">
@@ -45,6 +48,7 @@
       </textarea>
   </label><br>
   <button id="submitNote" type="submit">Add Note</button>
+  <% } %>
 </form>
 
 <%- include('../partials/footer') %>

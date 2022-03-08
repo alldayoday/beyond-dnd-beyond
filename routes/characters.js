@@ -8,9 +8,9 @@ const router = Router()
 
 router.get('/', charactersCtrl.index)
 
-router.get('/new', isLoggedIn, charactersCtrl.new)
+router.get('/new', isLoggedIn, passUserToView, charactersCtrl.new)
 
-router.post('/', isLoggedIn, charactersCtrl.create)
+router.post('/', isLoggedIn, passUserToView, charactersCtrl.create)
 
 router.get("/:id", isLoggedIn, passUserToView, charactersCtrl.show)
 
