@@ -1,36 +1,50 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
+<%- include('../partials/sidebar') %>
 <main>
 <h1><%= title %></h1>
 <table id="combatSpecific">
 <thead>
   <tr>
     <th>Name</th>
-    <!-- <th>Initiative</th> -->
     <th>AC</th>
     <th>HP Max</th>
-    <th>HP Current</th>
+    <th>HP</th>
     <th>Turn</th>
   </tr>
 </thead>
 <tbody>
-  <td><%= character.name %></td>
-  <td><%= character.armorClass %></td>
-  <td><%= character.hitPoints %></td>
-  <td><%= character.currentHP %></td>
-  <td><%= character.initiative %></td>
+  <% combat.instances.forEach(function(instance) { %>
+  <tr>
+  <td><%= instance.name %></td>
+  <td><%= instance.armorClass %></td>
+  <td><%= instance.hitPointsMax %></td>
+  <td><%= instance.hitPoints %></td>
+  <td><%= instance.initiative %></td>
+</tr>
+  <% }) %>
+
   </tbody>
 </table>
-<form id="combatForm" action="/combats/<%= combat._id %>/characters" method="POST">
+<form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
   <label>Name:
       <select id="classChar" name="characters">
       <% character.forEach(function(character) { %>
-        <option value="<%character%>"><%= character.name %></option>
+        <option value="<%= character.name%>"><%= character.name %></option>
       <% }) %>
     </select>
   </label><br>
   <label>Initiative:
-    <input id="initiativeRoll" type="text" name=<%character.initiative%>>
+    <input id="initiativeRoll" type="text" name="initiative">
+  </label><br>
+  <label>Armor Class:
+    <input id="AC" type="text" name="armorClass">
+  </label><br>
+  <label>Max Hit Points:
+    <input id="maxHP" type="text" name="hitPointsMax">
+  </label><br>
+  <label>Current Hit Points:
+    <input id="curHP" type="text" name="hitPoints">
   </label><br>
   <button id="submitCombat" type="submit">Add to Combat</button>
 </form>

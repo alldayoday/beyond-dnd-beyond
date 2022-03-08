@@ -45,16 +45,17 @@ function create(req,res){
 
   function addToCombat(req,res) {
     Combat.findById(req.params.id, function(err, combat) {
-      combat.characters.push(req.body)
+      combat.instances.push(req.body)
       combat.save(function(err) {
         res.redirect(`/combats/${combat._id}`)
       })
     })
   }
 
+
 export {
   index,
   create,
   show,
-  addToCombat
+  addToCombat,
 }

@@ -6,7 +6,7 @@ function index(req, res) {
   .then(profiles => {
     res.render('profiles/index', {
       profiles,
-			title: "Dungeon Masters"
+			title: "Intrepid Heros"
     })
   })
   .catch(err => {

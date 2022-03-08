@@ -12,7 +12,7 @@ router.post('/', isLoggedIn, combatsCtrl.create)
 
 router.get('/:id', isLoggedIn, combatsCtrl.show)
 
-router.post('/:id/characters', isLoggedIn, combatsCtrl.addToCombat)
+router.post('/:id/instances', isLoggedIn, combatsCtrl.addToCombat)
 
 
 

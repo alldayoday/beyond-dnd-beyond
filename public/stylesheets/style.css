@@ -41,6 +41,8 @@ nav {
   justify-content: center;
   height: 80px;
   border-bottom: 2px solid #ffddd25b;
+  width: 95%;
+  margin-left: 5%;
 }
 
 main {
@@ -236,6 +238,7 @@ table#charStat{
 #cardBg{
   border-radius: 50px;
   background-color: #424748d0;
+  margin:  0 100px 0 120px;
 }
 
 
@@ -288,9 +291,8 @@ input {
   color: #242424;
   font-size: 1.2rem;
   display: flex;
-  justify-items: center;
-  margin: 20px;
-  height: fit-content;
+  align-items: center;
+  margin-left: 10%;
 }
 
 #notesTitle {
@@ -303,8 +305,9 @@ input {
 
 #notesCard {
   margin: 10px;
-  height: fit-content;
-  width: fit-content;
+  height: 60%;
+  width: auto;
+  overflow: hidden;
 }
 
 #newNote {
@@ -313,5 +316,51 @@ input {
 
 }
 
-.card-text { height: 42px; overflow-x: scroll; width: 100%; }
-.card-text p { width: 650px; word-break: break-word; }
+#notes {
+  font-size: 1.2rem;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 100px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(29, 28, 28);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: #818181;
+  display: block;
+  text-align: center;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav p {
+  text-align: center;
+  margin-top: 80px;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
