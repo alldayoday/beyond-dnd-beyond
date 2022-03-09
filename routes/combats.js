@@ -16,6 +16,7 @@ router.post('/:id/instances', isLoggedIn, combatsCtrl.addToCombat)
 
 router.delete("/:id", isLoggedIn, passUserToView, combatsCtrl.delete)
 
+
 export {
   router
 }
