@@ -1,0 +1,20 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/edit.css" />
+<%- include('../partials/nav') %>
+<%- include('../partials/sidebar') %>
+<h1> <%= title %> </h1>
+<div>
+  <form
+  id="new-form" 
+  action="/combats/<%= combat._id %>/instances/<%= instance._id%>?_method=PUT"
+  method="POST"
+  >
+<label>Current Hit Points:
+  <input id="maxHP" type="number" name="currentHP">
+</label><br>
+<button id="submitCombat" type="submit">Add to Combat</button>
+</form>
+</div>
+
+
+<%- include('../partials/footer') %>

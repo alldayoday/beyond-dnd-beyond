@@ -27,8 +27,6 @@ function show(req, res) {
     }
   })}
 
-
-
 function create(req,res){
     req.body.owner = req.user.profile._id
     Combat.create(req.body)

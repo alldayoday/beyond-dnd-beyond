@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/sidebar') %>
+<link 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+  crossorigin="anonymous"
+>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+<form id="newNote" action="/profiles/<%=profile._id%>/sessionNotes" method="POST">
+  <label>Session Number:
+    <input id="sessionNum" type="number" name="session">
+  </label><br>
+  <label>Date:
+    <input type="datetime-local" name="date">
+  </label><br>
+  <label>Notes:
+    <textarea rows="10" cols="50" id="notes" type="textarea" name="notes">
+      </textarea>
+  </label><br>
+  <button id="submitNote" type="submit">Add Note</button>
+
+</form>
+
+<%- include('../partials/footer') %>

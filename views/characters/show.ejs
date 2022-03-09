@@ -136,10 +136,10 @@
       <% } %>
       <% if (character.owner.equals(user?.profile._id)) { %>
       <a href="/characters/<%= character._id %>/edit">
-        <button class="btn" type="submit">Edit Character</button>
+        <button class="butn" type="submit">Edit Character</button>
       </a>
       <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-        <button class="btn" type="submit">Delete Character</button>
+        <button class="butn" type="submit">Delete Character</button>
         </form>
         <% } %>
 </main>

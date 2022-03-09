@@ -8,16 +8,6 @@
 <%- include('../partials/sidebar') %>
 <%- include('../partials/nav') %>
 <h1> <%= title %></h1>
-
-<!-- <div class="card" style="width: 18rem;">
-  <div class="card-body">
-
-
-    <p class="card-text"></p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div> -->
 <div id="notesAll">
 <% profile.sessionNotes.forEach(sessionNote => { %>
 <div id="notesCard" class="card bg-dark" style="width: 30%;">
@@ -27,9 +17,14 @@
     <h6 class="card-subtitle mb-2 text-muted">Session Date: <%= sessionNote.date %></h6>
     <p id="notes" class="card-text"><%=sessionNote.notes%>.</p>
     <% if (isSelf) {%>
+      <div id="editNotedel">
+      <a href="/profiles/<%= profile._id %>/sessionNotes/<%= sessionNote._id%>/edit">
+        <button class="butn" type="submit">✒️</button>
+      </a>
     <form action="/profiles/<%= profile._id %>/sessionNotes/<%= sessionNote._id%>?_method=DELETE" method="POST">
       <button class="btn" type="submit">X</button>
       </form>
+    </div>
       <% } %>
   </div>
 </div>

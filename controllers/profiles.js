@@ -34,8 +34,6 @@ function show(req, res) {
   })
 }
 
-
-
 function createNote(req,res) {
   Profile.findById(req.params.id, function(err, profile) {
     profile.sessionNotes.push(req.body)
@@ -60,6 +58,8 @@ function deleteNote(req, res) {
     res.redirect(`/profiles/${req.profile._id}`)
   })
 }
+
+
 
 export {
   index,
