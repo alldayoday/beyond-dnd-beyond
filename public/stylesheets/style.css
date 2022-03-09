@@ -42,8 +42,7 @@ nav {
   justify-content: center;
   height: 80px;
   border-bottom: 2px solid #ffddd25b;
-  width: 95%;
-  margin-left: 5%;
+  width: 100%;
 }
 
 main {
@@ -364,10 +363,7 @@ input {
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+
 
 #combatForm {
   text-align: right;
@@ -410,4 +406,38 @@ input {
 
 #combatName{
   font-size: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 60px;
+
+  }
+  body {
+    background-image: none;
+  }
+  h1 {
+    font-family: 'Noto Serif', serif;
+    text-shadow: none;
+    font-size: 1.6rem;
+  }
+  nav a{
+    font-family: 'Noto Serif', serif;;
+    text-shadow: none;
+    font-size: 1.6rem;
+  }
+  table {
+    display: inline-block;
+    border: none;
+    background-color: none;
+  }
+  td {
+  height: 50px;
+  border: none;
+  background-color: none;
+}
+  #charEdit, #newChar {
+    margin-left: 100px;
+  }
 }
