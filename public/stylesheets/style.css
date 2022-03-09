@@ -411,8 +411,7 @@ input {
 @media screen and (max-width: 600px) {
   .sidenav {
     padding-top: 15px;
-    width: 60px;
-
+    width: 0px;
   }
   body {
     background-image: none;
@@ -426,11 +425,27 @@ input {
     font-family: 'Noto Serif', serif;;
     text-shadow: none;
     font-size: 1.6rem;
+    margin-left: 5px;
   }
   table {
     display: inline-block;
     border: none;
     background-color: none;
+  }
+  #cardview {
+    width: 20px;
+  }
+  #charImg{
+    width: 0;
+    height: 0;
+  }
+  #charName{
+    font-size: 10px;
+    text-align: center;
+    margin: 0;
+  }
+  #foot{
+    font-size: 0;
   }
   td {
   height: 50px;

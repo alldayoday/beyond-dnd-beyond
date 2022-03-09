@@ -21,17 +21,17 @@
             <a class="text-decoration-none" href="/characters/<%= character._id %>">
               <div class="card mb-4 shadow-sm" id="cardview">
                 <div class="card-body">
-                  <p class="card-title fs-3 text-dark">
+                  <p id="charName" class="card-title fs-3 text-dark">
                     <%= character.name %></p>
                   <% if (character.avatar) { %>
-                    <img
+                    <img id="charImg"
                       class="card-img-top"
                       src="<%= character.avatar %>"
                       alt="<%= character.name %>'s avatar"
                       width="100%"
                     />
                   <% } else {%>
-                    <img
+                    <img id="charImg"
                       class="card-img-top"
                       src="https://picsum.photos/200"
                       alt="A placeholder avatar"
