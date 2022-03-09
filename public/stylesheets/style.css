@@ -435,10 +435,6 @@ input {
     border: none;
     background-color: none;
   }
-  #charImg{
-    width: 0;
-    height: 0;
-  }
   td {
   height: 50px;
   border: none;
@@ -446,5 +442,8 @@ input {
 }
   #charEdit, #newChar {
     margin-left: 100px;
+  }
+  #characterCards{
+    font-size: .8rem;
   }
 }
