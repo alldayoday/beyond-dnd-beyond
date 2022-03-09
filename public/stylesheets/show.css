@@ -12,7 +12,9 @@ img {
   margin-top: 20px;
 }
 
-
+table {
+  text-align: center;
+}
 
 
 .sidenav {
@@ -61,9 +63,9 @@ img {
     padding-top: 15px;
     width: 0px;
   }
-  table {
+  table, th, td, tbody, thead {
     background-color: none;
-    width: fit-content;
-    margin: 5px;
+    border: none;
   }
 }
+

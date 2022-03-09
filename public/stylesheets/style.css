@@ -433,8 +433,7 @@ input {
     font-size: 1.6rem;
     margin-left: 5px;
   }
-  table {
-    display: inline-block;
+  table, td, th, tbody, thead{
     border: none;
     background-color: none;
   }
@@ -448,5 +447,12 @@ input {
   }
   #cardBg{
     margin: 0;
+  }
+  #weaponDetails{
+    background-color: none;
+    width: fit-content;
+  }
+  #spellDetails{
+    width: fit-content;
   }
 }
