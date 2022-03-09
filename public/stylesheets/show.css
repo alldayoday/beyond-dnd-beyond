@@ -53,3 +53,10 @@ img {
   margin-left: 160px; /* Same as the width of the sidebar */
   padding: 0px 10px;
 }
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 0px;
+  }
+}
