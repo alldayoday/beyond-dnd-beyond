@@ -17,6 +17,7 @@ function index(req, res) {
 
 function show(req, res) {
   Combat.findById(req.params.id)
+  .sort({initiative: 'asc'})
   .exec(function(err, combat) { {
       res.render('combats/show', {
         title: `${combat.name}`, 

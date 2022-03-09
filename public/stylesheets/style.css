@@ -421,6 +421,9 @@ input {
     text-shadow: none;
     font-size: 1.6rem;
   }
+  nav {
+    width: 100%;
+  }
   nav a{
     font-family: 'Noto Serif', serif;;
     text-shadow: none;
@@ -432,20 +435,9 @@ input {
     border: none;
     background-color: none;
   }
-  #cardview {
-    width: 20px;
-  }
   #charImg{
     width: 0;
     height: 0;
-  }
-  #charName{
-    font-size: 10px;
-    text-align: center;
-    margin: 0;
-  }
-  #foot{
-    font-size: 0;
   }
   td {
   height: 50px;
