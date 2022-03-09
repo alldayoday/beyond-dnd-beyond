@@ -445,5 +445,7 @@ input {
   }
   #characterCards{
     font-size: .8rem;
+    width: fit-content;
+    height: auto;
   }
 }
