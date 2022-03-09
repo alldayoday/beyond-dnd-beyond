@@ -50,6 +50,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
 }
 
 h1 {
@@ -145,7 +146,7 @@ table {
   font-size: 2rem;
   width: 80%;
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color:#00000059;
 }
 
@@ -442,9 +443,6 @@ input {
   border: none;
   background-color: none;
 }
-  #charEdit, #newChar {
-    margin-left: 100px;
-  }
   #cardBg{
     margin: 0;
   }
