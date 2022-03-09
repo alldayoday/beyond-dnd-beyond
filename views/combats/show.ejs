@@ -1,13 +1,14 @@
+
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <%- include('../partials/sidebar') %>
 <main>
 <h1><%= title %></h1>
-<table id="combatSpecific">
+<table class="sortable" id="combatSpecific">
 <thead>
   <tr>
     <th>Name</th>
-    <th>AC</th>
     <th>HP Max</th>
     <th>HP</th>
     <th>Turn</th>
@@ -17,33 +18,24 @@
   <% combat.instances.forEach(function(instance) { %>
   <tr>
   <td><%= instance.name %></td>
-  <td><%= instance.armorClass %></td>
-  <td><%= instance.hitPointsMax %></td>
   <td><%= instance.hitPoints %></td>
+  <td><input id="currentHP" type="text"></td>
   <td><%= instance.initiative %></td>
 </tr>
   <% }) %>
+
   </tbody>
 </table>
 <form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
-  <label>Name:
-      <select id="charName" name="name">
-      <% character.forEach(function(character) { %>
-        <option value="<%= character.name %>"><%= character.name %></option>
-      <% }) %>
-    </select>
+    <label>Name:
+      <input id="initiativeRoll" type="text" name="name">
+    </label><br>
   </label><br>
   <label>Initiative:
     <input id="initiativeRoll" type="text" name="initiative">
   </label><br>
-  <label>Armor Class:
-    <input id="AC" type="text" name="armorClass">
-  </label><br>
   <label>Max Hit Points:
-    <input id="maxHP" type="text" name="hitPointsMax">
-  </label><br>
-  <label>Current Hit Points:
-    <input id="curHP" type="text" name="hitPoints">
+    <input id="maxHP" type="number" name="hitPoints">
   </label><br>
   <button id="submitCombat" type="submit">Add to Combat</button>
 </form>

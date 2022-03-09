@@ -3,7 +3,6 @@ import { Character } from '../models/character.js'
 
 function index(req, res) {
   Combat.find({})
-  .populate("characters")
   .then(combats => {
     res.render('combats/index', {
       combats,
@@ -18,18 +17,16 @@ function index(req, res) {
 
 function show(req, res) {
   Combat.findById(req.params.id)
-  .populate('characters')
-  .exec(function(err, combat) {
-    Character.find({_id: {$nin: combat.characters}}, 
-      function(err, character) {
+  .exec(function(err, combat) { {
       res.render('combats/show', {
         title: `${combat.name}`, 
         combat,
-        character,
+        err,
       })
-    })
-  })
-}
+    }
+  })}
+
+
 
 function create(req,res){
     req.body.owner = req.user.profile._id
@@ -43,19 +40,31 @@ function create(req,res){
     })
   }
 
-  function addToCombat(req,res) {
-    Combat.findById(req.params.id, function(err, combat) {
+  function addToCombat(req, res) {
+    Combat.findById(req.params.id)
+    .then(combat => {
       combat.instances.push(req.body)
-      combat.save(function(err) {
+      combat.save()
+      .then(() => {
         res.redirect(`/combats/${combat._id}`)
       })
     })
+    .catch(err => {
+      console.log(err)
+      res.redirect(`/combats/`)
+    })
   }
 
+  function deleteCombat(req, res) {
+      Combat.findByIdAndDelete(req.params.id, function(err, combat) {
+        res.redirect("/combats")
+      })
+    }
 
 export {
   index,
   create,
   show,
   addToCombat,
+  deleteCombat as delete,
 }

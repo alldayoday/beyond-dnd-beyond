@@ -30,8 +30,6 @@ const characterSchema = new Schema({
   int: {type: Number},
   wis: {type: Number},
   cha: {type: Number},
-  initiative: {type: Number},
-  currentHP: {type: Number},
   hitPoints: {type: Number},
   avatar: {type: String},
   // intiativeBonus: Number,

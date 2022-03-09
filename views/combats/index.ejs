@@ -7,14 +7,20 @@
   <thead>
     <tr>
       <th>Combat</th> 
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
     <% combats.forEach(function(combat) { %>
       <tr>
-        <td> <a href="/combats/<%= combat._id %>">
+        <td> <a id="combatName" href="/combats/<%= combat._id %>">
           <%=combat.name%>
         </a>
+        </td>
+        <td>
+          <form action="/combats/<%= combat._id %>?_method=DELETE" method="POST">
+            <button class="btn" type="submit">Delete</button>
+            </form>
         </td>
       </tr>
     <% }) %>
