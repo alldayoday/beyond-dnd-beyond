@@ -3,8 +3,8 @@
 ### This website is for Dungeon Masters who run Dungeons and Dragons Fifth Edition. It is a way to track player characters as well as enemies and non-playable characters statistics, weapons, and spells. This allows game masters to keep those statistics handy in game and allows them to update characters as they level up in the campaign
 
 ## Game Deployment
-* insert deployment link
-* run npm i to download necessary modules
+[DEPLOY](https://beyond-dnd-beyond.herokuapp.com/)
+
 
 ## Technologies Used:
 ![HTML](https://img.shields.io/badge/-HTML-green)
@@ -15,7 +15,7 @@ Mongoose
 Express
 
 ## Future Enhancements 
-* Add a combat feature that will track whose turn it is in initiative
+* Let combat add actual characters and include their statistics
 * Allow players to upload photos and automatically host those before sending link to database
 
 ## Game Images
@@ -24,3 +24,4 @@ insert final images
 ## Special Thanks
 * NPM module creaters
 * SEI template creater
+* https://www.kryogenix.org/ for the sorting algorithm

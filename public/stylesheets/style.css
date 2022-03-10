@@ -146,13 +146,12 @@ table {
   font-size: 2rem;
   width: 80%;
   border: 2px solid black;
-  border-radius: 20px;
   background-color:#00000059;
 }
 
 table thead th {
   padding: 5px;
-  border: 2px solid rgba(0, 0, 0, 0.76);
+  border: 5px solid rgba(0, 0, 0, 0.76);
   font-family: 'Shrikhand', cursive;
   font-size: 18px;
   text-shadow: 0 2px 2px black, 2px 2px #84a98c;
@@ -202,6 +201,8 @@ table#charStat{
   border: 5px solid black;
 }
 
+
+
 #spellDetails{
   width: 70%;
   border: 5px solid black;
@@ -227,7 +228,6 @@ table#charStat{
 
 #weaponName{
   text-align: right;
-  margin-right: 10px;
   margin-bottom: 0;
   margin-top: 10px;
 }
@@ -352,8 +352,9 @@ input {
 }
 
 
-.sidenav a:hover {
-  color: #f1f1f1;
+.sidenav img:hover {
+  border: 3px solid #f5cac3;
+  border-radius: 10px;
 }
 
 .sidenav p {

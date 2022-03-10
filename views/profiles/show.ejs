@@ -8,6 +8,7 @@
 <%- include('../partials/sidebar') %>
 <%- include('../partials/nav') %>
 <h1> <%= title %></h1>
+<div class="container py-5 px-3">
 <div id="notesAll">
 <% profile.sessionNotes.forEach(sessionNote => { %>
 <div id="notesCard" class="card bg-dark" style="width: 30%;">
@@ -27,6 +28,8 @@
 </div>
 <% }) %>
 </div> 
+</div>
+
 <% if (isSelf) {%>
 <form id="newNote" action="/profiles/<%=profile._id%>/sessionNotes" method="POST">
   <label>Session Number:

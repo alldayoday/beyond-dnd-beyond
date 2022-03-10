@@ -66,6 +66,10 @@ table {
   table, th, td, tbody, thead {
     background-color: none;
     border: none;
+    width: fit-content;
+  }
+  #charStat{
+    margin-left: 50px;
   }
 }
 
