@@ -119,19 +119,12 @@ form {
   text-align: center;
 }
 
-.btn {
-  margin: 1.6rem 0;
-}
-
 .link {
   padding: 1rem 0;
   font-size: 1.8rem;
   display: inline-block;
 }
 
-.profile-avatar {
-  margin-top: 50px;
-}
 
 table {
   font-size: 2rem;
