@@ -3,7 +3,7 @@
 <%- include('./partials/sidebar') %>
 
 <main>
-  <h1>Hello, <%= user ? user.profile.name : "Friend!" %></h1>
+  <h1>Welcome, <%= user ? user.profile.name : "Intrepid Hero!" %></h1>
   <h2><%= user ? "Ready to Roll?" : " " %></h2>
   <a id="imgLink" href="/combats">
   <img  id="indexImg" src="https://i.imgur.com/oDat7SZ.jpg" alt="Roll for Initiative">
