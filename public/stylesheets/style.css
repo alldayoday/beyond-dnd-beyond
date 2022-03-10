@@ -293,11 +293,30 @@ input {
 }
 
 #notesCard {
-  overflow: hidden;
   margin: 10px;
   height: 50vh;
   width: 80%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
+
+#notesCard::-webkit-scrollbar-track
+{
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+background-color: #000000;
+}
+
+#notesCard::-webkit-scrollbar
+{
+width: 6px;
+background-color: #F5F5F5;
+}
+
+#notesCard::-webkit-scrollbar-thumb
+{
+background-color: darkred;
+}
+
 
 #newNote {
   text-align: right;

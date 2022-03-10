@@ -1,0 +1,18 @@
+body{
+  background-image: none;
+  color: rgb(236, 218, 193);
+}
+
+h1{
+  font-family: 'Noto Serif', serif;
+  text-shadow: none;
+  color: rgb(236, 218, 193);
+}
+
+#submitNote{
+  background-color: rgb(236, 218, 193);
+  color: darkred;
+  font-family: 'Noto Serif', serif;
+  text-shadow: none;
+  border: 2px solid rgb(187, 125, 38);
+}
