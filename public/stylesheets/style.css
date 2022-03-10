@@ -201,8 +201,6 @@ table#charStat{
   border: 5px solid black;
 }
 
-
-
 #spellDetails{
   width: 70%;
   border: 5px solid black;
@@ -355,6 +353,7 @@ input {
 .sidenav img:hover {
   border: 3px solid #f5cac3;
   border-radius: 10px;
+  background-color: #f5cac34d;
 }
 
 .sidenav p {
