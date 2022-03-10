@@ -4,6 +4,7 @@
 
 ## Game Deployment
 [Check it out!](https://beyond-dnd-beyond.herokuapp.com/)
+[Planning](https://trello.com/b/yf4KAv6G/beyond-dnd-beyond)
 
 
 ## Technologies Used:
