@@ -10,18 +10,23 @@
 ![HTML](https://img.shields.io/badge/-HTML-green)
 ![CSS](https://img.shields.io/badge/-CSS-blueviolet)
 ![JAVASCRIPT](https://img.shields.io/badge/-Javascript-yellow)
-MongoDB
-Mongoose
-Express
+![MONGODB](https://img.shields.io/badge/-MongoDB-green)
+![MONGOOSE](https://img.shields.io/badge/-Mongoose-yellow)
+![EXPRESS](https://img.shields.io/badge/-Express-ff69b4)
+![BOOTSTRAP](https://img.shields.io/badge/-Bootstrap-blueviolet)
 
 ## Future Enhancements 
 * Let combat add actual characters and include their statistics
 * Allow players to upload photos and automatically host those before sending link to database
 
 ## Game Images
-insert final images
+<img src="https://i.imgur.com/aLzMoHd.png"
+style='width:325px' />
+<img src="https://i.imgur.com/xMYr8TA.png"
+style='width:325px' />
 
 ## Special Thanks
-* NPM module creaters
-* SEI template creater
-* https://www.kryogenix.org/ for the sorting algorithm
+* NPM module creators for letting me stand on their shoulders
+* SEI template creator for giving me a starting hand
+* https://www.kryogenix.org/ for the temporary sorting algorithm 
+* Wizards of the Coast for creating a TTRPG with so much information that I can include six data sets in my app and still have ideas for future enchancements 
