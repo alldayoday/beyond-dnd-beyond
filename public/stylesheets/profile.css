@@ -15,4 +15,14 @@ h1{
   font-family: 'Noto Serif', serif;
   text-shadow: none;
   border: 2px solid rgb(187, 125, 38);
+  background-clip: inherit;
+}
+
+.but{
+  background-color: rgb(236, 218, 193);
+  color: darkred;
+  font-family: 'Noto Serif', serif;
+  text-shadow: none;
+  border: 2px solid rgb(187, 125, 38);
+  padding: 2px;
 }
