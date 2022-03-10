@@ -18,10 +18,6 @@
 ![EJS](https://img.shields.io/badge/-ejs-blue)
 
 
-
-
-
-
 ## Future Enhancements 
 * Let combat add actual characters and include their statistics
 * Allow players to upload photos and automatically host those before sending link to database

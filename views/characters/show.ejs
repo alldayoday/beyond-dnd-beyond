@@ -1,146 +1,162 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/show.css">
-<%- include('../partials/nav') %>
-<%- include('../partials/sidebar') %>
-<main>
-  <h1><%= title %></h1>
-  <table id="charStat">
-    <div id="charInfo">
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>AC</th>
-      <th>HP</th>
-      <th>STR</th>
-      <th>DEX</th>
-      <th>CON</th>
-      <th>INT</th>
-      <th>WIS</th>
-      <th>CHA</th>
-    </tr>
-  </thead>
-  <tbody>
-    <td><%= character.class %></td>
-    <td><%= character.armorClass %></td>
-    <td><%= character.hitPoints %></td>
-    <td><%= character.str %></td>
-    <td><%= character.dex %></td>
-    <td><%= character.con %></td>
-    <td><%= character.int %></td>
-    <td><%= character.wis %></td>
-    <td><%= character.cha %></td>
-    </tbody>
-  </div>
-</table>
-<% if (character.avatar) { %>
-  <img
-    src="<%= character.avatar %>"
-    alt="<%= character.name %>'s avatar"
-    width="20%"
-  />
-<% } else {%>
-  <img
-    src="https://picsum.photos/200"
-    alt="A placeholder avatar"
-    width="20%"
-  />
-<% } %>
-<% if (character.weapons.length) { %>
-  <table id="weaponDetails">
-    <thead>
-      <tr>
-        <th>Weapons</th>
-        <th>Damage</th>%>
-        <% if (character.owner.equals(user?.profile._id)) { %>  
-          <th>Remove</th>
-          <% } %>         
-      </tr>
-    </thead>
-    <tbody>
-      <% character.weapons.forEach(function(weapon) { %>
-        <tr>
-          <td><%= weapon.weapon %></td>
-          <td><%= weapon.damage %></td>
-          <% if (character.owner.equals(user?.profile._id)) { %>  
-            <td> 
-              <form action="/characters/<%=character._id%>/weapons/<%= weapon._id %>?_method=DELETE" method="POST"
-                style="display: inline-block;">
-            <button type="submit">Remove</button>
-            </form>
-          </td>
-            <% } %>        
-        </tr>
-      <% }) %>
-    </tbody>
-  </table>
-<% } else { %>
-  <h3>This character has no weapons</h3>
-<% } %>
-      <% if (character.spells.length) { %>
-        <table id="spellDetails">
-          <thead>
-            <tr>
-              <th>Spells</th>
-              <th>Spell Effect</th>
-              <% if (character.owner.equals(user?.profile._id)) { %>  
-              <th>Remove</th>
-              <% } %>        
-            </tr>
-          </thead>
-          <tbody>
-            <% character.spells.forEach(function(spell) { %>
+  <link rel="stylesheet" href="/stylesheets/show.css">
+  <%- include('../partials/nav') %>
+    <%- include('../partials/sidebar') %>
+
+      <main>
+        <h1>
+          <%= title %>
+        </h1>
+        <table id="charStat">
+          <div id="charInfo">
+            <thead>
               <tr>
-                <td><%= spell.name %></td>
-                <td><%= spell.effect %></td>
-                <% if (character.owner.equals(user?.profile._id)) { %>  
-                  <td> 
-                    <form action="/characters/<%=character._id%>/spells/<%= spell._id %>?_method=DELETE" method="POST"
-                      style="display: inline-block;">
-                  <button type="submit">Remove Spell</button>
-                  </form>
-                </td>
-                  <% } %>        
+                <th>Class</th>
+                <th>AC</th>
+                <th>HP</th>
+                <th>STR</th>
+                <th>DEX</th>
+                <th>CON</th>
+                <th>INT</th>
+                <th>WIS</th>
+                <th>CHA</th>
               </tr>
-            <% }) %>
-          </tbody>
+            </thead>
+            <tbody>
+              <td>
+                <%= character.class %>
+              </td>
+              <td>
+                <%= character.armorClass %>
+              </td>
+              <td>
+                <%= character.hitPoints %>
+              </td>
+              <td>
+                <%= character.str %>
+              </td>
+              <td>
+                <%= character.dex %>
+              </td>
+              <td>
+                <%= character.con %>
+              </td>
+              <td>
+                <%= character.int %>
+              </td>
+              <td>
+                <%= character.wis %>
+              </td>
+              <td>
+                <%= character.cha %>
+              </td>
+            </tbody>
+          </div>
         </table>
-      <% } else { %>
-        <h3>This character has no spells</h3>
-      <% } %>
-      <% if (character.owner.equals(user?.profile._id)) { %>
-      <h3>Add Spells and Weapons</h3>
-      <form 
-        id="add-spell-form"
-        action="/characters/<%= character._id %>/spells"
-        method="POST">
-      <label>Spell Name:
-        <input type="text" name="name">
-      </label><br>
-      <label>Spell Effect:
-        <input type="text" name="effect">
-      </label><br>
-        <button type="submit">Add Spell</button>
-      </form>
-      <form 
-      id="weaponName"
-      action="/characters/<%= character._id %>/weapons"
-      method="POST">
-      <label id="weaponName">Weapon Name:
-        <input type="text" name="weapon">
-      </label><br>
-      <label>Damage:
-        <input type="text" name="damage">
-      </label><br>
-        <button type="submit">Equip Weapon</button>
-      </form>
-      <% } %>
-      <% if (character.owner.equals(user?.profile._id)) { %>
-      <a href="/characters/<%= character._id %>/edit">
-        <button class="butn" type="submit">Edit Character</button>
-      </a>
-      <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
-        <button class="butn" type="submit">Delete Character</button>
-        </form>
-        <% } %>
-</main>
-<%- include('../partials/footer') %>
+        <% if (character.avatar) { %>
+          <img src="<%= character.avatar %>" alt="<%= character.name %>'s avatar" width="20%" />
+          <% } else {%>
+            <img src="https://picsum.photos/200" alt="A placeholder avatar" width="20%" />
+            <% } %>
+              <% if (character.weapons.length) { %>
+                <table id="weaponDetails">
+                  <thead>
+                    <tr>
+                      <th>Weapons</th>
+                      <th>Damage</th>%>
+                      <% if (character.owner.equals(user?.profile._id)) { %>
+                        <th>Remove</th>
+                        <% } %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% character.weapons.forEach(function(weapon) { %>
+                      <tr>
+                        <td>
+                          <%= weapon.weapon %>
+                        </td>
+                        <td>
+                          <%= weapon.damage %>
+                        </td>
+                        <% if (character.owner.equals(user?.profile._id)) { %>
+                          <td>
+                            <form action="/characters/<%=character._id%>/weapons/<%= weapon._id %>?_method=DELETE"
+                              method="POST" style="display: inline-block;">
+                              <button type="submit">Remove</button>
+                            </form>
+                          </td>
+                          <% } %>
+                      </tr>
+                      <% }) %>
+                  </tbody>
+                </table>
+                <% } else { %>
+                  <h3>This character has no weapons</h3>
+                  <% } %>
+                    <% if (character.spells.length) { %>
+                      <table id="spellDetails">
+                        <thead>
+                          <tr>
+                            <th>Spells</th>
+                            <th>Spell Effect</th>
+                            <% if (character.owner.equals(user?.profile._id)) { %>
+                              <th>Remove</th>
+                              <% } %>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% character.spells.forEach(function(spell) { %>
+                            <tr>
+                              <td>
+                                <%= spell.name %>
+                              </td>
+                              <td>
+                                <%= spell.effect %>
+                              </td>
+                              <% if (character.owner.equals(user?.profile._id)) { %>
+                                <td>
+                                  <form action="/characters/<%=character._id%>/spells/<%= spell._id %>?_method=DELETE"
+                                    method="POST" style="display: inline-block;">
+                                    <button type="submit">Remove Spell</button>
+                                  </form>
+                                </td>
+                                <% } %>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                      </table>
+                      <% } else { %>
+                        <h3>This character has no spells</h3>
+                        <% } %>
+                          <% if (character.owner.equals(user?.profile._id)) { %>
+                            <h3>Add Spells and Weapons</h3>
+                            <form id="add-spell-form" action="/characters/<%= character._id %>/spells" method="POST">
+                              <label>Spell Name:
+                                <input type="text" name="name">
+                              </label><br>
+                              <label>Spell Effect:
+                                <input type="text" name="effect">
+                              </label><br>
+                              <button type="submit">Add Spell</button>
+                            </form>
+                            <form id="weaponName" action="/characters/<%= character._id %>/weapons" method="POST">
+                              <label id="weaponName">Weapon Name:
+                                <input type="text" name="weapon">
+                              </label><br>
+                              <label>Damage:
+                                <input type="text" name="damage">
+                              </label><br>
+                              <button type="submit">Equip Weapon</button>
+                            </form>
+                            <% } %>
+                              <% if (character.owner.equals(user?.profile._id)) { %>
+                                <a href="/characters/<%= character._id %>/edit">
+                                  <button class="butn" type="submit">Edit Character</button>
+                                </a>
+                                <form action="/characters/<%= character._id %>?_method=DELETE" method="POST">
+                                  <button class="butn" type="submit">Delete Character</button>
+                                </form>
+                                <% } %>
+      </main>
+
+      <%- include('../partials/footer') %>

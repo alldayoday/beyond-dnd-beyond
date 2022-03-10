@@ -1,41 +1,48 @@
-
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<%- include('../partials/sidebar') %>
-<main>
-<h1><%= title %></h1>
-<table class="sortable" id="combatSpecific">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>HP Max</th>
-    <th>Turn</th>
-  </tr>
-</thead>
-<tbody>
-  <% combat.instances.forEach(function(instance) { %>
-  <tr>
-  <td><%= instance.name %></td>
-  <td><%= instance.hitPoints %></td>
-  <td><%= instance.initiative %></td>
-</tr>
-  <% }) %>
+  <%- include('../partials/nav') %>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    <%- include('../partials/sidebar') %>
+      <main>
+        <h1>
+          <%= title %>
+        </h1>
+        <table class="sortable" id="combatSpecific">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>HP Max</th>
+              <th>Turn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% combat.instances.forEach(function(instance) { %>
+              <tr>
+                <td>
+                  <%= instance.name %>
+                </td>
+                <td>
+                  <%= instance.hitPoints %>
+                </td>
+                <td>
+                  <%= instance.initiative %>
+                </td>
+              </tr>
+              <% }) %>
 
-  </tbody>
-</table>
-<form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
-    <label>Name:
-      <input id="initiativeRoll" type="text" name="name">
-    </label><br>
-  </label><br>
-  <label>Initiative:
-    <input id="initiativeRoll" type="text" name="initiative">
-  </label><br>
-  <label>Max Hit Points:
-    <input id="maxHP" type="number" name="hitPoints">
-  </label><br>
-  <button id="submitCombat" type="submit">Add to Combat</button>
-</form>
-</main>
-<%- include('../partials/footer') %>
+          </tbody>
+        </table>
+        <form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
+          <label>Name:
+            <input id="initiativeRoll" type="text" name="name">
+          </label><br>
+          </label><br>
+          <label>Initiative:
+            <input id="initiativeRoll" type="text" name="initiative">
+          </label><br>
+          <label>Max Hit Points:
+            <input id="maxHP" type="number" name="hitPoints">
+          </label><br>
+          <button id="submitCombat" type="submit">Add to Combat</button>
+        </form>
+      </main>
+      <%- include('../partials/footer') %>

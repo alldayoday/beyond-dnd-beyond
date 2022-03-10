@@ -1,37 +1,37 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
-<%- include('../partials/sidebar') %>
-<main>
-<table id="combatList">
-  <h1>Roll for Initiative</h1>
-  <thead>
-    <tr>
-      <th>Combat</th> 
-      <th>Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% combats.forEach(function(combat) { %>
-      <tr>
-        <td> <a id="combatName" href="/combats/<%= combat._id %>">
-          <%=combat.name%>
-        </a>
-        </td>
-        <td>
-          <form action="/combats/<%= combat._id %>?_method=DELETE" method="POST">
-            <button class="butn" type="submit">Delete</button>
-            </form>
-        </td>
-      </tr>
-    <% }) %>
-  </tbody>
-</table>
-<form id="newCombat" action="/combats" method="POST">
-  <label>Name:
-    <input id="nameCombat" type="text" name="name">
-  </label><br>
-  <button id="submitCombat" type="submit">Add New Combat</button>
-</form>
-</main>
+  <%- include('../partials/nav') %>
+    <%- include('../partials/sidebar') %>
+      <main>
+        <table id="combatList">
+          <h1>Roll for Initiative</h1>
+          <thead>
+            <tr>
+              <th>Combat</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% combats.forEach(function(combat) { %>
+              <tr>
+                <td> <a id="combatName" href="/combats/<%= combat._id %>">
+                    <%=combat.name%>
+                  </a>
+                </td>
+                <td>
+                  <form action="/combats/<%= combat._id %>?_method=DELETE" method="POST">
+                    <button class="butn" type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+        <form id="newCombat" action="/combats" method="POST">
+          <label>Name:
+            <input id="nameCombat" type="text" name="name">
+          </label><br>
+          <button id="submitCombat" type="submit">Add New Combat</button>
+        </form>
+      </main>
 
-<%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>

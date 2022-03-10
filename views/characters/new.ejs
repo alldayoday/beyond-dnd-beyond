@@ -1,68 +1,71 @@
 <%- include('../partials/html-head') %>
-<%- include('../partials/nav') %>
-<%- include('../partials/sidebar') %>
-<body>
-  <h1 id="charh1">Make a New Character</h1>
-  <p id="charp">Please first ensure that the character is not in the dropdown
-    <select>
-      <% characters.forEach(function(character) { %>
-        <option><%= character.name %></option>
-      <% }) %>
-    </select>
-  </p>
-  <form id="newChar" action="/characters" method="POST">
-    <label>Name:
-      <input id="nameChar" type="text" name="name">
-    </label><br>
-    <label>Class:
-      <select id="classChar" name="class">
-        <option value="Artificer">Artificer</option>
-        <option value="Barbarian">Barbarian</option>
-        <option value="Bard">Bard</option>
-        <option value="Blood Hunter">Blood Hunter</option>
-        <option value="Cleric">Cleric</option>
-        <option value="Druid">Druid</option>
-        <option value="Fighter">Fighter</option>
-        <option value="Monk">Monk</option>
-        <option value="Paladin">Paladin</option>
-        <option value="Ranger">Ranger</option>
-        <option value="Rogue">Rogue</option>
-        <option value="Sorcerer">Sorcerer</option>
-        <option value="Warlock">Warlock</option>
-        <option value="Wizard">Wizard</option>
-        <option value="NPC">NPC</option>
-      </select>
-    </label><br>
-    <label>AC:
-      <input type="number" name="armorClass">
-    </label><br>
-    <label>STR:
-      <input type="number" name="str">
-    </label><br>
-    <label>DEX:
-      <input type="number" name="dex">
-    </label><br>
-    <label>CON:
-      <input type="number" name="con">
-    </label><br>
-    <label>INT:
-      <input type="number" name="int">
-    </label><br>
-    <label>WIS:
-      <input type="number" name="wis">
-    </label><br>
-    <label>CHA:
-      <input type="number" name="cha">
-    </label><br>
-    <label>HP:
-      <input type="number" name="hitPoints">
-    </label><br>
-    <label>Picture:
-      <input id="pic" type="text" name="avatar" placeholder="direct image address">
-    </label><br>
-    <a href="https://picrew.me/image_maker/1283349/" target="_blank">Need a picture?</a>
-    <button id="submitChar" type="submit">Add Character</button>
-  </form>
-</body>
+  <%- include('../partials/nav') %>
+    <%- include('../partials/sidebar') %>
 
-<%- include('../partials/footer') %>
+      <body>
+        <h1 id="charh1">Make a New Character</h1>
+        <p id="charp">Please first ensure that the character is not in the dropdown
+          <select>
+            <% characters.forEach(function(character) { %>
+              <option>
+                <%= character.name %>
+              </option>
+              <% }) %>
+          </select>
+        </p>
+        <form id="newChar" action="/characters" method="POST">
+          <label>Name:
+            <input id="nameChar" type="text" name="name">
+          </label><br>
+          <label>Class:
+            <select id="classChar" name="class">
+              <option value="Artificer">Artificer</option>
+              <option value="Barbarian">Barbarian</option>
+              <option value="Bard">Bard</option>
+              <option value="Blood Hunter">Blood Hunter</option>
+              <option value="Cleric">Cleric</option>
+              <option value="Druid">Druid</option>
+              <option value="Fighter">Fighter</option>
+              <option value="Monk">Monk</option>
+              <option value="Paladin">Paladin</option>
+              <option value="Ranger">Ranger</option>
+              <option value="Rogue">Rogue</option>
+              <option value="Sorcerer">Sorcerer</option>
+              <option value="Warlock">Warlock</option>
+              <option value="Wizard">Wizard</option>
+              <option value="NPC">NPC</option>
+            </select>
+          </label><br>
+          <label>AC:
+            <input type="number" name="armorClass">
+          </label><br>
+          <label>STR:
+            <input type="number" name="str">
+          </label><br>
+          <label>DEX:
+            <input type="number" name="dex">
+          </label><br>
+          <label>CON:
+            <input type="number" name="con">
+          </label><br>
+          <label>INT:
+            <input type="number" name="int">
+          </label><br>
+          <label>WIS:
+            <input type="number" name="wis">
+          </label><br>
+          <label>CHA:
+            <input type="number" name="cha">
+          </label><br>
+          <label>HP:
+            <input type="number" name="hitPoints">
+          </label><br>
+          <label>Picture:
+            <input id="pic" type="text" name="avatar" placeholder="direct image address">
+          </label><br>
+          <a href="https://picrew.me/image_maker/1283349/" target="_blank">Need a picture?</a>
+          <button id="submitChar" type="submit">Add Character</button>
+        </form>
+      </body>
+
+      <%- include('../partials/footer') %>

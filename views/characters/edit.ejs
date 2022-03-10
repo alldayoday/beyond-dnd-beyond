@@ -1,64 +1,44 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/edit.css" />
-<%- include('../partials/nav') %>
-<%- include('../partials/sidebar') %>
-<body>
-  <h1>Edit <%=character.name%></h1>
-  <form 
-    id="charEdit" 
-    action="/characters/<%= character._id %>?_method=PUT"
-    method="POST">
-    <label>Name:
-      <input type="text" name="name" value="<%=character.name%>">
-    </label><br>
-    <!-- <label>Class:
-      <select id="classVal" name="class">
-        <option value="Artificer">Artificer</option>
-        <option value="Barbarian">Barbarian</option>
-        <option value="Bard">Bard</option>
-        <option value="Blood Hunter">Blood Hunter</option>
-        <option value="Cleric">Cleric</option>
-        <option value="Druid">Druid</option>
-        <option value="Fighter">Fighter</option>
-        <option value="Monk">Monk</option>
-        <option value="Paladin">Paladin</option>
-        <option value="Ranger">Ranger</option>
-        <option value="Rogue">Rogue</option>
-        <option value="Sorcerer">Sorcerer</option>
-        <option value="Warlock">Warlock</option>
-        <option value="Wizard">Wizard</option>
-        <option value="NPC">NPC</option>
-      </select> -->
-    </label><br>
-    <label>AC:
-      <input type="number" name="armorClass" value="<%=character.armorClass%>">
-    </label><br>
-    <label>STR:
-      <input type="number" name="str" value="<%=character.str%>">
-    </label><br>
-    <label>DEX:
-      <input type="number" name="dex" value="<%=character.dex%>">
-    </label><br>
-    <label>CON:
-      <input type="number" name="con" value="<%=character.con%>">
-    </label><br>
-    <label>INT:
-      <input type="number" name="int" value="<%=character.int%>">
-    </label><br>
-    <label>WIS:
-      <input type="number" name="wis" value="<%=character.wis%>">
-    </label><br>
-    <label>CHA:
-      <input type="number" name="cha" value="<%=character.cha%>">
-    </label><br>
-    <label>HP:
-      <input type="number" name="hitPoints" value="<%=character.hitPoints%>">
-    </label><br> 
-    <label>Picture:
-      <input id="pic" type="text" name="avatar" placeholder="direct image address" value="<%=character.avatar%>">
-    </label><br>
-    <button type="submit">Update Character</button>
-  </form>
-</body>
+  <link rel="stylesheet" href="/stylesheets/edit.css" />
+  <%- include('../partials/nav') %>
+    <%- include('../partials/sidebar') %>
 
-<%- include('../partials/footer') %>
+      <body>
+        <h1>Edit <%=character.name%>
+        </h1>
+        <form id="charEdit" action="/characters/<%= character._id %>?_method=PUT" method="POST">
+          <label>Name:
+            <input type="text" name="name" value="<%=character.name%>">
+          </label><br>
+          <label>AC:
+            <input type="number" name="armorClass" value="<%=character.armorClass%>">
+          </label><br>
+          <label>STR:
+            <input type="number" name="str" value="<%=character.str%>">
+          </label><br>
+          <label>DEX:
+            <input type="number" name="dex" value="<%=character.dex%>">
+          </label><br>
+          <label>CON:
+            <input type="number" name="con" value="<%=character.con%>">
+          </label><br>
+          <label>INT:
+            <input type="number" name="int" value="<%=character.int%>">
+          </label><br>
+          <label>WIS:
+            <input type="number" name="wis" value="<%=character.wis%>">
+          </label><br>
+          <label>CHA:
+            <input type="number" name="cha" value="<%=character.cha%>">
+          </label><br>
+          <label>HP:
+            <input type="number" name="hitPoints" value="<%=character.hitPoints%>">
+          </label><br>
+          <label>Picture:
+            <input id="pic" type="text" name="avatar" placeholder="direct image address" value="<%=character.avatar%>">
+          </label><br>
+          <button type="submit">Update Character</button>
+        </form>
+      </body>
+
+      <%- include('../partials/footer') %>

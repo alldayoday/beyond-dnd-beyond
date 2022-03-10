@@ -20,9 +20,9 @@ router.put("/:id", isLoggedIn, passUserToView, charactersCtrl.update)
 
 router.delete("/:id", isLoggedIn, passUserToView, charactersCtrl.delete)
 
-router.post('/:id/spells', isLoggedIn, passUserToView,charactersCtrl.createSpell)
+router.post('/:id/spells', isLoggedIn, passUserToView, charactersCtrl.createSpell)
 
-router.post('/:id/weapons', isLoggedIn, passUserToView,charactersCtrl.equipWeapon)
+router.post('/:id/weapons', isLoggedIn, passUserToView, charactersCtrl.equipWeapon)
 
 router.delete("/:charId/spells/:spellId", isLoggedIn, passUserToView, charactersCtrl.deleteSpell)
 

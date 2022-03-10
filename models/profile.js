@@ -6,9 +6,9 @@ const notesSchema = new Schema({
   session: {
     type: Number,
   },
-  date: {type: String},
+  date: { type: String },
   notes: {
-    type: String, 
+    type: String,
   },
 })
 
