@@ -21,7 +21,7 @@
 ## Future Enhancements 
 * Let combat add actual characters and include their statistics
 * Allow players to upload photos and automatically host those before sending link to database
-* Include an NPC bage on non player characters
+* Include an NPC badge on non player characters
 * Add ability score with allowance for expertise and pulling from character statistics
 * Let roller function include modifiers
 
