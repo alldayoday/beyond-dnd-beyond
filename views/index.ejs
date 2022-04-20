@@ -1,13 +1,16 @@
 <%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
-<%- include('./partials/sidebar') %>
+  <%- include('./partials/nav') %>
+    <%- include('./partials/sidebar') %>
 
-<main>
-  <h1>Welcome, <%= user ? user.profile.name : "Intrepid Hero!" %></h1>
-  <h2><%= user ? "Ready to Roll?" : " " %></h2>
-  <a id="imgLink" href="/combats">
-  <img  id="indexImg" src="https://i.imgur.com/oDat7SZ.jpg" alt="Roll for Initiative">
-  </a>
-</main>
+      <main>
+        <h1>Welcome, <%= user ? user.profile.name : "Intrepid Hero!" %>
+        </h1>
+        <h2>
+          <%= user ? "Ready to Roll?" : " " %>
+        </h2>
+        <a id="imgLink" href="/combats">
+          <img id="indexImg" src="https://i.imgur.com/oDat7SZ.jpg" alt="Roll for Initiative">
+        </a>
+      </main>
 
-<%- include('./partials/footer') %>
+      <%- include('./partials/footer') %>

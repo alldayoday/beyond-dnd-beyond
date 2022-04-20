@@ -31,7 +31,6 @@ const characterSchema = new Schema({
   cha: { type: Number },
   hitPoints: { type: Number },
   avatar: { type: String },
-  // intiativeBonus: Number,
   spells: [spellSchema],
   weapons: [weaponSchema],
   owner: { type: Schema.Types.ObjectId, ref: "Profile" }
@@ -42,5 +41,3 @@ const Character = mongoose.model("Character", characterSchema)
 export {
   Character
 }
-
-//comment out for combat details

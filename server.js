@@ -10,10 +10,7 @@ import passport from 'passport'
 import { passUserToView } from './middleware/middleware.js'
 
 
-// connect to MongoDB with mongoose
 import('./config/database.js')
-
-// load passport
 import('./config/passport.js')
 
 // require routes
@@ -23,7 +20,7 @@ import { router as charactersRouter } from './routes/characters.js'
 import { router as combatsRouter } from './routes/combats.js'
 import { router as profilesRouter } from './routes/profiles.js'
 
-// create the express app
+
 const app = express()
 
 // view engine setup
