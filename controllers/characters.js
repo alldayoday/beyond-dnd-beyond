@@ -1,5 +1,4 @@
 import { Character } from '../models/character.js'
-import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Character.find({})
@@ -110,15 +109,6 @@ function createSpell(req, res) {
   })
 }
 
-function equipWeapon(req, res) {
-  Character.findById(req.params.id, function (err, character) {
-    character.weapons.push(req.body)
-    character.save(function (err) {
-      res.redirect(`/characters/${character._id}`)
-    })
-  })
-}
-
 function deleteSpell(req, res) {
   Character.findById(req.params.charId)
     .then(character => {
@@ -133,6 +123,15 @@ function deleteSpell(req, res) {
       console.log(err)
       res.redirect(`/characters/${req.character._id}`)
     })
+}
+
+function equipWeapon(req, res) {
+  Character.findById(req.params.id, function (err, character) {
+    character.weapons.push(req.body)
+    character.save(function (err) {
+      res.redirect(`/characters/${character._id}`)
+    })
+  })
 }
 
 function deleteWeapon(req, res) {
