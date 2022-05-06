@@ -1,6 +1,5 @@
 <%- include('../partials/html-head') %>
   <%- include('../partials/nav') %>
-    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <%- include('../partials/sidebar') %>
       <main>
         <h1>
@@ -10,30 +9,39 @@
           <thead>
             <tr>
               <th>Name</th>
-              <th>HP Max</th>
               <th>Turn</th>
+              <th>HP</th>
+              <th>AC</th>
             </tr>
           </thead>
           <tbody>
-          </tbody>
-        </table>
-  <div>Characters</div>
-  <ul>
-    <% combat.characters.forEach(char => { %>
-      <div><%= char.name %></div>
+    <% combat.characters.sort((a,b) => b.initiative - a.initiative).forEach(char => { %>
+      <tr>
+      <td>
+        <%= char.name %>
+      </td>
+      <td>
+        <%= char.initiative %>
+      </td>
+      <td>
+        <%= char.hitPoints %>
+      </td>
+      <td>
+        <%= char.armorClass %>
+      </td>
+    </tr>
     <% }) %>
-  </ul>
+  </tbody>
+</table>
         <form id="combatForm" action="/combats/<%= combat._id %>/characters" method="POST">
-          <select name="charId">
+          <select class="form-select-lg mb-3" name="charId">
             <% characters.forEach(char => { %>
               <option value="<%= char._id %>"><%= char.name %></option>
             <% }) %>
           </select>
           </label><br>
-          <label>Initiative:
-            <input id="initiativeRoll" type="text" name="initiative">
-          </label><br>
           <button id="submitCombat" type="submit">Add to Combat</button>
         </form>
+      </form>
       </main>
       <%- include('../partials/footer') %>

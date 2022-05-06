@@ -150,6 +150,17 @@ function deleteWeapon(req, res) {
     })
 }
 
+function setInit(req, res) {
+  Character.findById(req.params.id)
+  .then(character => {
+    character.initiative = req.body.initiativeRoll
+    character.save()
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/combats')
+  })
+}
 
 
 export {

@@ -1,6 +1,10 @@
 import mongoose from "mongoose"
 const Schema = mongoose.Schema
 
+// const turnSchema = new Schema({
+//   initiative: { type: Number },
+//   character: { type: Schema.Types.ObjectId, ref: "Character" },
+// })
 
 const combatSchema = new Schema({
   name: { type: String },

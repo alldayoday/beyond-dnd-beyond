@@ -17,8 +17,7 @@ function index(req, res) {
 
 function show(req, res) {
   Combat.findById(req.params.id)
-    .populate('characters')
-    .sort({ initiative: 'asc' })
+  .populate('characters')
     .exec(function (err, combat) {
       Character.find({ _id: { $nin: combat.characters } }, function (err, characters) {
         res.render('combats/show', {
@@ -45,7 +44,6 @@ function create(req, res) {
 }
 
 function addToCombat(req, res) {
-
   Combat.findById(req.params.id)
     .then(combat => {
       combat.characters.push(req.body.charId)
@@ -66,17 +64,7 @@ function deleteCombat(req, res) {
   })
 }
 
-function setInit(req, res) {
-  Character.findById(req.params.id)
-  .then(character => {
-    character.initiative = req.body.initiative
-    character.save()
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/combats')
-  })
-}
+
 
 export {
   index,
@@ -84,5 +72,4 @@ export {
   show,
   addToCombat,
   deleteCombat as delete,
-  setInit,
 }
