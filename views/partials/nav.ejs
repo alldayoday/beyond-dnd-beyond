@@ -1,5 +1,7 @@
+<script defer src="/dark.js"></script>
 <% if (!user) { %>
   <link rel="stylesheet" href="/stylesheets/siwg.css">
+
   <% } %>
     </head>
 
@@ -12,11 +14,13 @@
         <a href="/combats">Combat</a>
         <% if (user) { %>
           <a href="/auth/logout">Logout</a>
+          <button id="light-dark-button" class="btn"></button>
           <% } else { %>
             <a href="/auth/google" class="siwg-link">
               <button type="submit" class="siwg">
                 <img id="siwg-image" alt="Sign in with Google" />
               </button>
+              <button id="light-dark-button" class="btn"></button>
             </a>
             <% } %>
       </nav>

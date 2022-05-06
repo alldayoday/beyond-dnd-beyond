@@ -24,16 +24,20 @@ body {
   margin: 0;
   font-family: 'Noto Serif', serif;
   color: #f5cac3;
+  --light-dark-btn-bg:#6f7181;
+  --light-dark-btn-content: "Light Mode";
+  --inverted-btn-text-color: rgb(29, 28, 28);
+  --light-dark-btn-bg: #f5cac3;
+  --text-color: #f5cac3;
 }
 
 nav {
   background-color: rgb(29, 28, 28);
   font-size: 1.6rem;
   display: flex;
-  justify-content: center;
-  height: 80px;
+  justify-content: space-around;
+  height: 60px;
   border-bottom: 2px solid #ffddd25b;
-  width: 100%;
 }
 
 main {
@@ -50,6 +54,7 @@ h1 {
   font-family: 'Shrikhand', cursive;
   text-shadow: 0 2px 2px black, 5px 5px #84a98c;
   margin-top: 20px;
+  color: var(--text-color);
 }
 
 h2 {
@@ -348,9 +353,10 @@ background-color: #f5cac3;
   top: 0; 
   left: 0;
   background-color: rgb(29, 28, 28);
-  overflow-x: hidden;
-  padding-top: 20px;
+
+  margin-top: 60px;
   border-right: 2px solid #ffddd25b;
+
 
 }
 
@@ -369,9 +375,14 @@ background-color: #f5cac3;
   background-color: #f5cac34d;
 }
 
-.sidenav p {
+.sidenav h2 {
   text-align: center;
-  margin-top: 80px;
+  color: #f5cac3;
+}
+
+.sidenav h1 {
+  text-align: center;
+  color: #f5cac3;
 }
 
 .main {
@@ -467,4 +478,26 @@ background-color: #f5cac3;
   .card-img{
     height: max-content;
   }
+}
+
+body.light {
+  --body-bg: #f5cac3;
+  --inverted-btn-text-color: #f5cac3;
+  --light-dark-btn-bg: rgb(29, 28, 28);
+  --light-dark-btn-content: "Dark Mode";
+  --text-color: black;
+  background-color: var(--body-bg);
+  color: #292929;
+}
+
+#light-dark-button {
+  border: none;
+  background-color: var(--light-dark-btn-bg);
+  /* background-image: var(--light-dark-btn-bg); */
+}
+
+#light-dark-button::after {
+  border: none;
+  color: var(--inverted-btn-text-color);
+  content: var(--light-dark-btn-content);
 }
