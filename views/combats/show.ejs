@@ -12,6 +12,7 @@
               <th>Turn</th>
               <th>HP</th>
               <th>AC</th>
+              <th>Roll Turn</th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +29,12 @@
       </td>
       <td>
         <%= char.armorClass %>
+      </td>
+      <td>
+        <form id="initiative" action="/characters/<%= char._id %>?_method=PUT" method="POST">
+            <input id="initRoll" type="number" name="initiative">
+          <button id="submitCombat" type="submit">Set</button>
+          </form>
       </td>
     </tr>
     <% }) %>
