@@ -30,6 +30,7 @@ const characterSchema = new Schema({
   wis: { type: Number },
   cha: { type: Number },
   hitPoints: { type: Number },
+  initiative: { type: Number },
   avatar: { type: String },
   spells: [spellSchema],
   weapons: [weaponSchema],

@@ -82,6 +82,7 @@ function update(req, res) {
     })
 }
 
+
 function deleteCharacter(req, res) {
   Character.findById(req.params.id)
     .then(character => {

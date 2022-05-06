@@ -17,23 +17,26 @@ function index(req, res) {
 
 function show(req, res) {
   Combat.findById(req.params.id)
+    .populate('characters')
     .sort({ initiative: 'asc' })
     .exec(function (err, combat) {
-      {
+      Character.find({ _id: { $nin: combat.characters } }, function (err, characters) {
         res.render('combats/show', {
           title: `${combat.name}`,
           combat,
+          characters,
           err,
         })
-      }
-    })
+      })
+    }
+    )
 }
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
   Combat.create(req.body)
     .then(combat => {
-      res.redirect('/combats')
+      res.redirect(`/combats/${combat._id}`)
     })
     .catch(err => {
       console.log(err)
@@ -42,9 +45,10 @@ function create(req, res) {
 }
 
 function addToCombat(req, res) {
+
   Combat.findById(req.params.id)
     .then(combat => {
-      combat.instances.push(req.body)
+      combat.characters.push(req.body.charId)
       combat.save()
         .then(() => {
           res.redirect(`/combats/${combat._id}`)
@@ -62,8 +66,17 @@ function deleteCombat(req, res) {
   })
 }
 
-
-
+function setInit(req, res) {
+  Character.findById(req.params.id)
+  .then(character => {
+    character.initiative = req.body.initiative
+    character.save()
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/combats')
+  })
+}
 
 export {
   index,
@@ -71,4 +84,5 @@ export {
   show,
   addToCombat,
   deleteCombat as delete,
+  setInit,
 }

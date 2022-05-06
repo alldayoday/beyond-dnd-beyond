@@ -15,32 +15,23 @@
             </tr>
           </thead>
           <tbody>
-            <% combat.instances.forEach(function(instance) { %>
-              <tr>
-                <td>
-                  <%= instance.name %>
-                </td>
-                <td>
-                  <%= instance.hitPoints %>
-                </td>
-                <td>
-                  <%= instance.initiative %>
-                </td>
-              </tr>
-              <% }) %>
-
           </tbody>
         </table>
-        <form id="combatForm" action="/combats/<%= combat._id %>/instances" method="POST">
-          <label>Name:
-            <input id="initiativeRoll" type="text" name="name">
-          </label><br>
+  <div>Characters</div>
+  <ul>
+    <% combat.characters.forEach(char => { %>
+      <div><%= char.name %></div>
+    <% }) %>
+  </ul>
+        <form id="combatForm" action="/combats/<%= combat._id %>/characters" method="POST">
+          <select name="charId">
+            <% characters.forEach(char => { %>
+              <option value="<%= char._id %>"><%= char.name %></option>
+            <% }) %>
+          </select>
           </label><br>
           <label>Initiative:
             <input id="initiativeRoll" type="text" name="initiative">
-          </label><br>
-          <label>Max Hit Points:
-            <input id="maxHP" type="number" name="hitPoints">
           </label><br>
           <button id="submitCombat" type="submit">Add to Combat</button>
         </form>
