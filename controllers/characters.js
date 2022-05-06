@@ -72,8 +72,10 @@ function update(req, res) {
             res.redirect(`/characters/${character._id}`)
           })
       } else {
-        console.log(character.owner)
-        throw new Error('🚫 Not authorized 🚫')
+        character.updateOne(req.body, { new: true })
+        .then(() => {
+          res.redirect(`/combats`)
+        })
       }
     })
     .catch(err => {
