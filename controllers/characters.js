@@ -73,9 +73,9 @@ function update(req, res) {
           })
       } else {
         character.updateOne(req.body, { new: true })
-        .then(() => {
-          res.redirect(`/characters/${character._id}`)
-        })
+          .then(() => {
+            res.redirect(`/characters/${character._id}`)
+          })
       }
     })
     .catch(err => {
@@ -115,7 +115,6 @@ function createSpell(req, res) {
 function deleteSpell(req, res) {
   Character.findById(req.params.charId)
     .then(character => {
-      console.log("hello!")
       character.spells.remove({ _id: req.params.spellId })
       character.save()
         .then(() => {
@@ -154,17 +153,36 @@ function deleteWeapon(req, res) {
 
 function setInit(req, res) {
   Character.findById(req.params.id)
-  .then(character => {
-    character.initiative = req.body.initiative
-    character.save()
-    .then(() => {
-      res.redirect(req.get('referer'));
-  })})
-  .catch(err => {
-    console.log(err)
-    res.redirect('/combats')
-  })
+    .then(character => {
+      character.initiative = req.body.initiative
+      character.save()
+        .then(() => {
+          res.redirect(req.get('referer'));
+        })
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/combats')
+    })
 }
+
+function takeDamage(req, res) {
+  if (req.body.currentHP > 0) {
+    Character.findById(req.params.id)
+      .then(character => {
+        character.currentHP = character.currentHP - req.body.currentHP
+        character.save()
+          .then(() => {
+            res.redirect(req.get('referer'));
+          })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/combats')
+      })
+  } else {
+  throw new Error('🚫 No Negative Hits 🚫')
+}}
 
 
 export {
@@ -180,5 +198,6 @@ export {
   deleteSpell,
   deleteWeapon,
   setInit,
+  takeDamage,
 }
 

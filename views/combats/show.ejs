@@ -10,9 +10,11 @@
             <tr>
               <th>Name</th>
               <th>Turn</th>
+              <th>Max HP</th>
               <th>HP</th>
               <th>AC</th>
               <th>Roll Turn</th>
+              <th>Take Damage</th>
             </tr>
           </thead>
           <tbody>
@@ -28,12 +30,21 @@
         <%= char.hitPoints %>
       </td>
       <td>
+        <%= char.currentHP %>
+      </td>
+      <td>
         <%= char.armorClass %>
       </td>
       <td>
         <form id="initiative" action="/characters/<%= char._id %>/setInit?_method=PATCH" method="POST">
             <input id="initRoll" type="number" name="initiative">
           <button id="submitCombat" type="submit">Set</button>
+          </form>
+      </td>
+      <td>
+        <form id="damage" action="/characters/<%= char._id %>/takeDamage?_method=PATCH" method="POST">
+            <input id="initRoll" type="number" name="currentHP">
+          <button id="submitCombat" type="submit">Hit</button>
           </form>
       </td>
     </tr>

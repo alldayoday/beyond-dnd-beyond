@@ -17,6 +17,7 @@ router.post('/:id/weapons', isLoggedIn, passUserToView, charactersCtrl.equipWeap
 router.delete("/:charId/spells/:spellId", isLoggedIn, passUserToView, charactersCtrl.deleteSpell)
 router.delete("/:charId/weapons/:weaponId", isLoggedIn, passUserToView, charactersCtrl.deleteWeapon)
 router.patch('/:id/setInit', isLoggedIn, charactersCtrl.setInit)
+router.patch('/:id/takeDamage', isLoggedIn, charactersCtrl.takeDamage)
 
 export {
   router
