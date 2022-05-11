@@ -8,18 +8,25 @@
         <table class="sortable" id="combatSpecific">
           <thead>
             <tr>
+              <th>Turn</th>
               <th>Name</th>
               <th>Turn</th>
               <th>Max HP</th>
               <th>HP</th>
               <th>AC</th>
-              <th>Roll Turn</th>
               <th>Take Damage</th>
+              <th>Heal</th>
             </tr>
           </thead>
           <tbody>
     <% combat.characters.sort((a,b) => b.initiative - a.initiative).forEach(char => { %>
       <tr>
+        <td>
+          <form id="initiative" action="/characters/<%= char._id %>/setInit?_method=PATCH" method="POST">
+              <input id="initRoll" type="number" name="initiative">
+            <button id="submitCombat" type="submit">X</button>
+            </form>
+        </td>
       <td>
         <%= char.name %>
       </td>
@@ -36,15 +43,15 @@
         <%= char.armorClass %>
       </td>
       <td>
-        <form id="initiative" action="/characters/<%= char._id %>/setInit?_method=PATCH" method="POST">
-            <input id="initRoll" type="number" name="initiative">
-          <button id="submitCombat" type="submit">Set</button>
+        <form id="damage" action="/characters/<%= char._id %>/takeDamage?_method=PATCH" method="POST">
+            <input id="initRoll" type="number" name="currentHP">
+          <button id="submitCombat" type="submit">-</button>
           </form>
       </td>
       <td>
-        <form id="damage" action="/characters/<%= char._id %>/takeDamage?_method=PATCH" method="POST">
-            <input id="initRoll" type="number" name="currentHP">
-          <button id="submitCombat" type="submit">Hit</button>
+        <form id="heal" action="/characters/<%= char._id %>/heal?_method=PATCH" method="POST">
+            <input id="initRoll" type="number" name="heal">
+          <button id="submitCombat" type="submit">+</button>
           </form>
       </td>
     </tr>

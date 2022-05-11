@@ -184,6 +184,26 @@ function takeDamage(req, res) {
   throw new Error('🚫 No Negative Hits 🚫')
 }}
 
+function heal(req, res) {
+  if (req.body.heal > 0) {
+    Character.findById(req.params.id)
+      .then(character => {
+        if (character.currentHP > 0){
+        character.currentHP = parseInt(character.currentHP) + parseInt(req.body.heal)
+        } else character.currentHP = req.body.heal
+        character.save()
+          .then(() => {
+            res.redirect(req.get('referer'));
+          })
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect('/combats')
+      })
+  } else {
+  throw new Error('🚫 No Negative Heals 🚫')
+}}
+
 
 export {
   index,
@@ -199,5 +219,6 @@ export {
   deleteWeapon,
   setInit,
   takeDamage,
+  heal,
 }
 

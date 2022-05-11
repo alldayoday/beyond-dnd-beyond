@@ -18,6 +18,7 @@ router.delete("/:charId/spells/:spellId", isLoggedIn, passUserToView, characters
 router.delete("/:charId/weapons/:weaponId", isLoggedIn, passUserToView, charactersCtrl.deleteWeapon)
 router.patch('/:id/setInit', isLoggedIn, charactersCtrl.setInit)
 router.patch('/:id/takeDamage', isLoggedIn, charactersCtrl.takeDamage)
+router.patch('/:id/heal', isLoggedIn, charactersCtrl.heal)
 
 export {
   router
