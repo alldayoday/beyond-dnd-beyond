@@ -31,7 +31,7 @@
         <%= char.armorClass %>
       </td>
       <td>
-        <form id="initiative" action="/characters/<%= char._id %>?_method=PUT" method="POST">
+        <form id="initiative" action="/characters/<%= char._id %>/setInit?_method=PATCH" method="POST">
             <input id="initRoll" type="number" name="initiative">
           <button id="submitCombat" type="submit">Set</button>
           </form>

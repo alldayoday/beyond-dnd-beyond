@@ -74,7 +74,7 @@ function update(req, res) {
       } else {
         character.updateOne(req.body, { new: true })
         .then(() => {
-          res.redirect(`/combats`)
+          res.redirect(`/characters/${character._id}`)
         })
       }
     })
@@ -155,9 +155,11 @@ function deleteWeapon(req, res) {
 function setInit(req, res) {
   Character.findById(req.params.id)
   .then(character => {
-    character.initiative = req.body.initiativeRoll
+    character.initiative = req.body.initiative
     character.save()
-  })
+    .then(() => {
+      res.redirect(req.get('referer'));
+  })})
   .catch(err => {
     console.log(err)
     res.redirect('/combats')
@@ -177,4 +179,6 @@ export {
   equipWeapon,
   deleteSpell,
   deleteWeapon,
+  setInit,
 }
+
