@@ -1,6 +1,6 @@
 import { Profile } from '../models/profile.js'
-import { Character } from '../models/character.js'
 
+//grabs all profiles
 function index(req, res) {
   Profile.find({})
     .then(profiles => {
@@ -15,6 +15,7 @@ function index(req, res) {
     })
 }
 
+//shows a specific profile and determines if it is the profile of the logged in user
 function show(req, res) {
   Profile.findById(req.params.id)
     .then((profile) => {
@@ -34,6 +35,7 @@ function show(req, res) {
     })
 }
 
+//adds a session note to the profile
 function createNote(req, res) {
   Profile.findById(req.params.id, function (err, profile) {
     profile.sessionNotes.push(req.body)
@@ -43,6 +45,7 @@ function createNote(req, res) {
   })
 }
 
+//removes a session note from the profile
 function deleteNote(req, res) {
   Profile.findById(req.params.profId)
     .then(profile => {

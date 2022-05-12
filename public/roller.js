@@ -58,4 +58,3 @@ function rollSix(){
             rollResult.textContent = `${roll}`
             }
 
-console.log('linked')

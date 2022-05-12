@@ -1,6 +1,7 @@
 import { Combat } from '../models/combat.js'
 import { Character } from '../models/character.js'
 
+//grabs all combats from db for page
 function index(req, res) {
   Combat.find({})
     .then(combats => {
@@ -15,6 +16,7 @@ function index(req, res) {
     })
 }
 
+//shows a specific combat instance, populates the characters information for combat tracking, and includes a list of any characters not currently in the combat that can be added
 function show(req, res) {
   Combat.findById(req.params.id)
   .populate('characters')
@@ -31,6 +33,7 @@ function show(req, res) {
     )
 }
 
+//creates a new combat instance
 function create(req, res) {
   req.body.owner = req.user.profile._id
   Combat.create(req.body)
@@ -43,6 +46,7 @@ function create(req, res) {
     })
 }
 
+//adds a character to the combat and saves it
 function addToCombat(req, res) {
   Combat.findById(req.params.id)
     .then(combat => {
@@ -58,14 +62,14 @@ function addToCombat(req, res) {
     })
 }
 
+//removes combat for upkeeping
 function deleteCombat(req, res) {
   Combat.findByIdAndDelete(req.params.id, function (err, combat) {
     res.redirect("/combats")
   })
 }
 
-
-
+//exports functions for routing
 export {
   index,
   create,
@@ -73,3 +77,4 @@ export {
   addToCombat,
   deleteCombat as delete,
 }
+
